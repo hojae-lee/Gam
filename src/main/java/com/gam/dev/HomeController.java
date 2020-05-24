@@ -31,7 +31,7 @@ public class HomeController {
 //		String result = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).testSelect();
 //		String result = sqlS.selectOne("com.gam.dev.gamImpl.GamImpl.testSelect");
 		
-		mv.setViewName("home");
+		mv.setViewName("main/home");
 		return mv;
 	}
 	

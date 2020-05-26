@@ -1,13 +1,17 @@
-# Gam
-## 데브업체 첫번째 프로젝트
+# 데브업체 첫번째 프로젝트
+## GAM
+#### desc
+- 원하는 기간에 원하는 목표를 등록하고 만든 목표를 공유하는 사이트
+- 각 목표에 기간을 정해서 세부사항을 등록 할 수 있고 시각적인 UI로 목표에 진행 전, 중, 후를 한눈에 볼 수 있다.
+
 #### 멤버
 |이름|Todo|세부|
 |------|------|-----|
-|황슬기|메인화면|DB설계, ER, 테이블 셋팅|
-|최민성|목표CRUD|DB설계, ER, 테이블 셋팅|
-|이재호|목표검색|깃, spring, api|
-|한동욱|목표현황|타일즈, spring, api|
-|공  통|디자인, 회원관리|페이지 별 디자인, 회원등록, 수정, 로그인, 로그아웃|
+|**황슬기**|메인화면|DB설계, ER, 테이블 셋팅|
+|**최민성**|목표CRUD|DB설계, ER, 테이블 셋팅|
+|**이재호**|목표검색|깃, spring, api|
+|**한동욱**|목표현황|타일즈, spring, api|
+|**공  통**|디자인, 회원관리|페이지 별 디자인, 회원등록, 수정, 로그인, 로그아웃|
 
 #### 일정
 1. **주제정하기** (2020.03.29 ~ 2020.04.05)
@@ -19,3 +23,34 @@
 7. **테이블 작성** (2020.05.24 ~)
 8. **프로젝트 시작** ()
 9. **프로젝트 리뷰** ()
+
+### 셋팅
+**브라우저호환**
+- chrome 엔진 기반 브라우저 호환.
+
+**lang**
+1. **java**
+2. **html**
+3. **css**
+4. **javascript(es5, es6)**
+5. **oracle dba**
+6. **jstl**
+
+**FrameWork**
+1. **Spring**
+
+**lib**
+1. **jquery**(dialog, modal, ajax etc...) https://jquery.com/
+2. **sweetAlert2** https://sweetalert2.github.io/#icons
+3. **bootstrap** https://getbootstrap.com/docs/4.5/getting-started/introduction/
+
+**DB**
+1. **Oracle**
+
+**tool**
+1. **eclipse**
+2. **sqldeveloper**
+3. **fork**
+
+**형상관리**
+1. **github**

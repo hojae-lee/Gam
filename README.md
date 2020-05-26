@@ -29,31 +29,32 @@
 - chrome 엔진 기반 브라우저 호환.
 
 **lang**
-1. **java**
-2. **html**
-3. **css**
-4. **javascript(es5, es6)**
-5. **oracle dba**
-6. **jstl**
+- **java**
+- **html**
+- **css**
+- **javascript(es5, es6)**
+- **oracle dba**
+- **jstl**
 
 **FrameWork**
-1. **Spring**
+- **Spring 4.3.27 Release**
 
 **lib**
-1. **jquery**(dialog, modal, ajax etc...) https://jquery.com/
-2. **sweetAlert2** https://sweetalert2.github.io/#icons
-3. **bootstrap** https://getbootstrap.com/docs/4.5/getting-started/introduction/
+- **jquery**(dialog, modal, ajax etc...) https://jquery.com/
+- **sweetAlert2** https://sweetalert2.github.io/#icons
+- **bootstrap** https://getbootstrap.com/docs/4.5/getting-started/introduction/
 
 **DB**
-1. **Oracle**
+- **Oracle11g**
 
 **tool**
-1. **springSTS**
-2. **sqldeveloper**
-3. **fork**
+- **springSTS**
+- **sqldeveloper**
+- **fork**
+- **git bash**
 
 **형상관리**
-1. **github**
+- **github**
 
 **문서관리**
-1. **구글드라이브**
+- **구글드라이브** (데브업체 공유폴더)

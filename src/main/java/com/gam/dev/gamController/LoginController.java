@@ -9,17 +9,17 @@ public class LoginController {
 		@Autowired
 		private SqlSession sqlS;
 		
-		// ¾ÆÀÌµğ Áßº¹ ¹æÁö
+		// ì•„ì´ë”” ì¤‘ë³µ ë°©ì§€
 		public void idcheckProcess() {
 			
 		}
 		
-		//·Î±×ÀÎ
+		//ë¡œê·¸ì¸
 		public void loginProcess() {
 			
 		}
 		
-		//·Î±×¾Æ¿ô
+		//ë¡œê·¸ì•„ì›ƒ
 		public void logout() {
 			
 		}

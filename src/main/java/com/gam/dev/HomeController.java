@@ -30,6 +30,21 @@ public class HomeController {
 //		String result = sqlS.selectOne("com.gam.dev.gamImpl.GamImpl.testSelect");
 		
 		mv.setViewName("main/home");
+		//mv.setViewName("main/test");
+		return mv;
+	}
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public ModelAndView test() {
+		ModelAndView mv = new ModelAndView();
+		
+		/*
+		 getMapper(인터페이스) 방식과 selectOne(단일 값) 방식
+		 */
+//		String result = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).testSelect();
+//		String result = sqlS.selectOne("com.gam.dev.gamImpl.GamImpl.testSelect");
+		
+		//mv.setViewName("main/home");
+		mv.setViewName("main/test");
 		return mv;
 	}
 	

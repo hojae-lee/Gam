@@ -9,7 +9,7 @@ public class GoalMainController {
 		@Autowired
 		private SqlSession sqlS;
 		
-		// ¸ñÇ¥ ¸ŞÀÎ
+		// ëª©í‘œ ë©”ì¸
 		public void goalMain() {
 			
 		}

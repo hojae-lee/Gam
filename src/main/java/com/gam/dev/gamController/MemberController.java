@@ -9,17 +9,17 @@ public class MemberController {
 		@Autowired
 		private SqlSession sqlS;
 		
-		// È¸¿øµî·Ï
+		// íšŒì›ë“±ë¡
 		public void userAdd() {
 			
 		}
 		
-		// È¸¿ø¼öÁ¤
+		// íšŒì›ìˆ˜ì •
 		public void userUpdate() {
 			
 		}
 		
-		// È¸¿ø»èÁ¦
+		// íšŒì›ì‚­ì œ
 		public void userDelete() {
 			
 		}

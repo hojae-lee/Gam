@@ -48,4 +48,11 @@ public class HomeController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/mstest", method = RequestMethod.GET)
+	public ModelAndView mstest() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("main/mstest");
+		return mv;
+	}
+	
 }

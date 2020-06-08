@@ -9,12 +9,12 @@ public class GoalSearchController {
 		@Autowired
 		private SqlSession sqlS;
 		
-		// ¸ñÇ¥ °Ë»ö
+		// ëª©í‘œ ê²€ìƒ‰
 		public void goalSearch() {
 			
 		}
 		
-		// ¸ñÇ¥ µğÅ×ÀÏ
+		// ëª©í‘œ ë””í…Œì¼
 		public void goalDetail() {
 			
 		}

@@ -9,12 +9,12 @@ public class GoalManageController {
 		@Autowired
 		private SqlSession sqlS;
 		
-		// ¸ñÇ¥ Ãß°¡, ¼öÁ¤, »èÁ¦
+		// ëª©í‘œ ì¶”ê°€, ìˆ˜ì •, ì‚­ì œ
 		public String goalManage() {
 			return "";
 		}
 		
-		// ¸ñÇ¥Ä«ÇÇ
+		// ëª©í‘œì¹´í”¼
 		public void goalCopy() {
 			
 		}

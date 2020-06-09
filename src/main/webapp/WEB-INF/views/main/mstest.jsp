@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
     
 	<div id="ms-content">
-		<h1>¤µ¤§¤¤¤µ</h1>
+		<h1>ã……ã„·ã„´ã……</h1>
 	</div>

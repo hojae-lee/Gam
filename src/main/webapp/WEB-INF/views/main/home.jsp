@@ -29,7 +29,7 @@
 	<button onclick="button1();">라이브러리연동버튼</button>
 	<button onclick="jsTest();">js연동버튼</button>
 	
-	<div class="shap_big_2 d-none d-lg-block">
+	<%-- <div class="shap_big_2 d-none d-lg-block">
         <img src="${pageContext.request.contextPath}/resources/img/ilstrator/body_shap_2.png" alt="">
     </div>
     <!-- slider_area_start -->
@@ -432,5 +432,5 @@
         <!-- /testimonial_area  -->
 	
 	
-        </div>
+        </div> --%>
 

@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
     <head>
     </head>
     <body>
         <!-- content  
-        	body ºñÁö´Ï½º ·ÎÁ÷ ³ÖÀ»°÷
+        	body ë¹„ì§€ë‹ˆìŠ¤ ë¡œì§ ë„£ì„ê³³
         -->
         <div id="content">
         

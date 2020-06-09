@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 	<div id="content">
         <h1>-----------------------------</h1>
-        	<h1> ¿©±â ¾Æ·ª¾ß¤¿¤© ?</h1>
+        	<h1> ì—¬ê¸° ì•„ëž´ì•¼ã…ã„¹ ?</h1>
 	    <h1>------------------------------</h1>
 	
 	</div>

@@ -11,4 +11,15 @@
     <definition name="*/*" extends="default-layout">
         <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
     </definition>
+    
+    <!--
+    <definition name="ms-layout" template="/WEB-INF/tiles/html/layouts/ms-layout.jsp">
+    	<put-attribute name="ms-header" value="/WEB-INF/tiles/html/layouts/ms-header.jsp" />
+        <put-attribute name="ms-footer" value="/WEB-INF/tiles/html/layouts/ms-footer.jsp" />
+    </definition>
+    
+    <definition name="main/mstest" extends="ms-layout">
+        <put-attribute name="ms-content" value="/WEB-INF/views/main/mstest.jsp" />
+    </definition>
+     -->
 </tiles-definitions>

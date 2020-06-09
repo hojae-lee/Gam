@@ -10,7 +10,7 @@ public class GoalManageController {
 		private SqlSession sqlS;
 		
 		// 목표 조회(상세보기 조회지.)
-		
+
 		// 목표 추가, 수정, 삭제
 		public String goalManage() {
 			//저장 버튼 하나로

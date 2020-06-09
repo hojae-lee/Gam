@@ -5,6 +5,7 @@
 	<!-- 라이브러리/js 경로 설정. -->
 	<script src="${pageContext.request.contextPath}/resources/lib/jquery-3.5.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/lib/sweetalert2.all.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/js/staticGAM.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/jsTest.js"></script>
 <script>
 	function button1() {

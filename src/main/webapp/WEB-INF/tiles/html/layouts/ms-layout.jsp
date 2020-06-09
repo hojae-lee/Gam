@@ -9,6 +9,7 @@
         <div class="container">
             <tiles:insertAttribute name="ms-content" />
             <tiles:insertAttribute name="ms-footer" />
+            
         </div>
     </body>
 </html>

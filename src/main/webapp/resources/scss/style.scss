@@ -1,74 +1,63 @@
+/* Theme Description
+-------------------------------------------------
 
-@import 'varriable.scss';
-@import 'mixins.scss';
+	  Theme Name:
+	  Author:
+	  Support:
+	  Description:
+	  Version:
+	  
+------------------------------------------------- 
+*/
+
+/* CSS Index
+-------------------------------------------------
+
+	1. Theme default css
+	2. header
+	3. slider
+	4. about-area
+	5. features-box
+	6. department
+	7. team
+	8. video-area
+	9. counter
+	10. footer
+
+-------------------------------------------------
+*/
+
+// Defult
+@import 'variables';
+@import 'mixins';
+@import 'overlay';
+@import 'common';
+@import 'color';
+
+
+// Deful Element Page
+@import 'blog_page';
+@import 'blog';
+@import 'contact';
+@import 'bradcam';
 @import 'extend';
-@import 'responsive.scss';
-@import 'theme-default.scss';
-@import 'btn';
-@import 'section_title';
-@import 'slick-nav.scss';
+@import 'elements';
 
 
-
-// header
-@import 'header';
-
-// slider
-@import 'slider';
-
-// about
-@import 'features';
-
-// counter
-@import 'counter';
-// counter
-@import 'about';
-
-// counter
-@import 'case_details';
-
-// gallery
-@import '_gallery';
-
-// about
+// Homepage1
+@import 'headerMenu';
+@import 'h1-hero';
+@import 'team';
+@import 'services_section';
+@import 'favourite-place';
+@import 'video-area';
+@import 'support-company';
+@import 'testimonial';
+@import 'pagination';
 @import 'footer';
 
-@import 'bradcam';
-
-@import 'department';
-
-@import 'tesmonial';
-
-@import 'discuss';
-
-@import 'service';
-
-@import 'video';
-
-@import 'portfolio';
-
-@import 'accordion';
-
-@import 'accordion_area';
-
-@import 'case_study.scss';
+// inner Page
+@import 'services';
 
 
-
-
-
-// other pages default
-
-// contact
-@import 'contact';
-
-// elements
-@import 'elements.scss';
-
-// blog
-@import 'blog';
-
-
-// blog part
-@import 'blog_part';
 

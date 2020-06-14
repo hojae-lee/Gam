@@ -15,36 +15,22 @@ public class HomeController {
 	private SqlSession sqlS;
 	
 	/*
-	 ÀÌ¸§: ÀÌÀçÈ£, ÇÑµ¿¿í
-	 ³¯Â¥: 20200524 
-	 ±â´É: ½ºÇÁ¸µ ¼ÂÆÃ »ùÇÃ
+	 ï¿½Ì¸ï¿½: ï¿½ï¿½ï¿½ï¿½È£, ï¿½Ñµï¿½ï¿½ï¿½
+	 ï¿½ï¿½Â¥: 20200524 
+	 ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
 		
 		/*
-		 getMapper(ÀÎÅÍÆäÀÌ½º) ¹æ½Ä°ú selectOne(´ÜÀÏ °ª) ¹æ½Ä
+		 getMapper(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½) ï¿½ï¿½Ä°ï¿½ selectOne(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½) ï¿½ï¿½ï¿½
 		 */
 //		String result = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).testSelect();
 //		String result = sqlS.selectOne("com.gam.dev.gamImpl.GamImpl.testSelect");
 		
 		mv.setViewName("main/home");
 		//mv.setViewName("main/test");
-		return mv;
-	}
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public ModelAndView test() {
-		ModelAndView mv = new ModelAndView();
-		
-		/*
-		 getMapper(ÀÎÅÍÆäÀÌ½º) ¹æ½Ä°ú selectOne(´ÜÀÏ °ª) ¹æ½Ä
-		 */
-//		String result = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).testSelect();
-//		String result = sqlS.selectOne("com.gam.dev.gamImpl.GamImpl.testSelect");
-		
-		//mv.setViewName("main/home");
-		mv.setViewName("main/test");
 		return mv;
 	}
 	

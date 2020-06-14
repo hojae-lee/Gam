@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Travel HTML-5 Template </title>
+    <title>Dev-GAM</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="manifest" href="site.webmanifest"> -->
@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+    <script src="${pageContext.request.contextPath}/resources/joinPage/lib/jquery-3.5.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/joinPage/lib/sweetalert2.all.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/joinPage/js/globalObject.js"></script>
     
     <header>
         <!-- Header Start -->
@@ -32,9 +35,7 @@
                         <div class="col-lg-8">
                             <div class="header-info-left">
                                 <ul>                          
-                                    <li>needhelp@gotrip.com</li>
-                                    <li>666 569 025077</li>
-                                    <li>broklyn street new york</li>
+                                    <li>Hello Dev Friends</li>
                                 </ul>
                             </div>
                         </div>
@@ -65,28 +66,23 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="">Goal</a>
+                                            	<ul class="submenu">
+                                                    <li><a href="">goalSelect</a></li>
+                                                    <li><a href="">goalSearch</a></li>
+                                                    <li><a href="">goalAdd</a></li>
+                                                </ul>
+                                            </li>
                                             <li><a href="about.html">About US</a></li>
-                                            <li><a href="packages.html">Package</a></li>
-                                            <li><a href="blog.html">Blog</a>
+                                            <li><a href="#">NICKNAME</a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
+                                                    <li><a href="">info</a></li>
+                                                    <li><a href="">LogOut</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="#">Pages</a>
-                                                <ul class="submenu">
-                                                    <li><a href="elements.html">Element</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact Us</a></li>
                                         </ul>
                                     </nav>
                                 </div>
-                            </div>
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
                         </div>
                     </div>

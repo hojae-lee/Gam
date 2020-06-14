@@ -43,6 +43,12 @@
 - **jquery**(dialog, modal, ajax etc...) https://jquery.com/
 - **sweetAlert2** https://sweetalert2.github.io/#icons
 - **bootstrap** https://getbootstrap.com/docs/4.5/getting-started/introduction/
+- **tiles** (2020.06.07 ~ 2020.06.14) <br/>
+
+|파일|설명|참고|
+|------|------|------|
+|**tiles.xml**|definition 작성 / put-attribute|<img src="https://user-images.githubusercontent.com/44262325/84588275-0d837080-ae61-11ea-89b6-5c14cba2ba61.PNG" width="700" height="100">|
+|**defalutLayout.jsp**|작성한 header 및 footer 적용 / insertAttribute|<img src="https://user-images.githubusercontent.com/44262325/84588276-0eb49d80-ae61-11ea-839c-5d028b7f3935.PNG" width="700" height="160">|
 
 **DB**
 - **Oracle11g**

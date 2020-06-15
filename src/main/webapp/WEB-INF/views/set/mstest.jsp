@@ -3,23 +3,24 @@
     
 	<div id="content">
 		<div class="col-md-12">
-			<table class="table">
-				<colgroup>
+			<table class="table" id="table">
+				<!-- <colgroup>
 					<col width="10%"/>
-					<col width="70%"/>
-					<col width="20%"/>
-				</colgroup>
+					<col width="10%"/>
+					<col width="10%"/>
+					<col width="60%"/>
+					<col width="10%"/>
+				</colgroup> -->
 			
 				<thead>
 					<th colspan="3">타이틀 입력란</th>
 				</thead>
+				
 				<tbody>
 					<tr>
-						<th>
-							<i class="fa fa-plus addRow"></i>
-						</th>
-						<td></td>
-						<td></td>
+						<td>
+							<i class="fa fa-plus addLvOne"></i>
+						</td>
 					</tr>
 				</tbody>
 			</table>

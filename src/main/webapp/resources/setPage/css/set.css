@@ -1,0 +1,14 @@
+input {
+	width: 500px;
+	height: 25px;
+	line-height: 50px;
+}
+
+.table th, .table td {
+	border-right:none;
+	border-left:none;
+	border-top:none;
+	border-bottom:none;
+	/* border-collapse: separate;
+	border-spacing: 0 10px; */
+}

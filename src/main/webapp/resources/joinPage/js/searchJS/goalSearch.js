@@ -1,8 +1,37 @@
 /*
- 작성자 : 이재호,
- 기능 : submit 하기 전에 검색 할 단어가 입력되었는지 안되었는지 확인.
+ 작성자 : 이재호
+ 기능 : jquery ui를 이용한 자동완성 기능.
  */
- GAM.searchCheck = function () {
+(function() {
+	$('#searchContents').autocomplete({
+		source : function (req, res) {
+			$.ajax({
+				url: "../autocomplete/search.do",
+				dataType: "json",
+				data: { 
+					searchValue: req.term,
+					searchTitle: document.getElementById('searchTitle').value
+				},
+				success: function(data) {
+					res(data.map(function(value){
+						return {
+							label: value.list_nm || value.user_nicknm,
+							value: value.list_nm || value.user_nicknm
+						}
+					}));
+				}
+			});
+		}
+	});
+})();
+
+
+/*
+ 작성자 : 이재호
+ 기능 : submit 하기 전에 검색 할 단어가 입력되었는지 안되었는지 확인.
+ 추가 : 강제로 Contents에 길이 30 이상 값을 넣을 경우 확인하는 방어코드 추가. 
+ */
+GAM.searchCheck = function () {
     const searchContents = document.getElementById('searchContents');
     if (searchContents) {
         if (searchContents.value === "") {
@@ -17,6 +46,11 @@
         }
     }
 }
+
+/*
+ 작성자 : 이재호
+ 기능 : Contents에 길이30자 이상 입력 시 이상 입력하지 못 하도록 막는다.
+*/
  
 document.getElementById('searchContents').onkeyup = function (e) {
 	if (e.srcElement && e.srcElement.value.length > 30) {

@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/joinPage/css/searchCSS/search.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
 <body>
 	<div class="parents">
@@ -10,9 +13,9 @@
 					<h1>Search for the goal!</h1>
 					<form action="" onsubmit="return GAM.searchCheck();">
 						<input type="text" name="searchContents" id="searchContents" placeholder="Let's SEARCH!!">
-						<select name="searchTitle" id="searchTitle" onchange="select">
-							<option value="user" selected>작성자</option>
-							<option value="title">제목</option>
+						<select name="searchTitle" id="searchTitle">
+							<option value="user_nicknm" selected>닉네임</option>
+							<option value="list_nm">제목</option>
 						</select>
 						<button type="submit" class="searchButton">SEARCH</button>
 					</form>

@@ -6,7 +6,7 @@ public class UserVO {
 	private String user_email;
 	private String user_pwd;
 	private String user_nm;
-	private String user_niknm;
+	private String user_nicknm;
 	private String user_tel;
 	private String user_gender;
 	private int user_auth;
@@ -15,14 +15,14 @@ public class UserVO {
 	
 	public UserVO() {}
 
-	public UserVO(int user_seq, String user_email, String user_pwd, String user_nm, String user_niknm, String user_tel,
+	public UserVO(int user_seq, String user_email, String user_pwd, String user_nm, String user_nicknm, String user_tel,
 			String user_gender, int user_auth, String user_join_dt, String user_last_login_dt) {
 		super();
 		this.user_seq = user_seq;
 		this.user_email = user_email;
 		this.user_pwd = user_pwd;
 		this.user_nm = user_nm;
-		this.user_niknm = user_niknm;
+		this.user_nicknm = user_nicknm;
 		this.user_tel = user_tel;
 		this.user_gender = user_gender;
 		this.user_auth = user_auth;
@@ -62,12 +62,12 @@ public class UserVO {
 		this.user_nm = user_nm;
 	}
 
-	public String getUser_niknm() {
-		return user_niknm;
+	public String getuser_nicknm() {
+		return user_nicknm;
 	}
 
-	public void setUser_niknm(String user_niknm) {
-		this.user_niknm = user_niknm;
+	public void setuser_nicknm(String user_nicknm) {
+		this.user_nicknm = user_nicknm;
 	}
 
 	public String getUser_tel() {

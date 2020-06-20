@@ -4,7 +4,6 @@ public class ListVO {
 
 	private int list_seq;
 	private int file_seq;
-	private int category_seq;
 	private int gam_seq;
 	private int list_level;
 	private int list_upper_list_seq;
@@ -21,14 +20,13 @@ public class ListVO {
 	
 	public ListVO() {}
 
-	public ListVO(int list_seq, int file_seq, int category_seq, int gam_seq, int list_level, int list_upper_list_seq,
+	public ListVO(int list_seq, int file_seq, int gam_seq, int list_level, int list_upper_list_seq,
 			int list_sort_order, String list_nm, String list_desc, int list_status, String list_start_dt,
 			String list_end_dt, int list_create_user_seq, String list_create_dt, int list_update_user_seq,
 			String list_update_dt) {
 		super();
 		this.list_seq = list_seq;
 		this.file_seq = file_seq;
-		this.category_seq = category_seq;
 		this.gam_seq = gam_seq;
 		this.list_level = list_level;
 		this.list_upper_list_seq = list_upper_list_seq;
@@ -58,14 +56,6 @@ public class ListVO {
 
 	public void setFile_seq(int file_seq) {
 		this.file_seq = file_seq;
-	}
-
-	public int getCategory_seq() {
-		return category_seq;
-	}
-
-	public void setCategory_seq(int category_seq) {
-		this.category_seq = category_seq;
 	}
 
 	public int getGam_seq() {

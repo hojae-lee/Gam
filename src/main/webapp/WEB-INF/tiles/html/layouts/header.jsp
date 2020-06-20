@@ -69,7 +69,7 @@
                                             <li><a href="">Goal</a>
                                             	<ul class="submenu">
                                                     <li><a href="">goalSelect</a></li>
-                                                    <li><a href="">goalSearch</a></li>
+                                                    <li><a href="search/goalSearch.do">goalSearch</a></li>
                                                     <li><a href="">goalAdd</a></li>
                                                 </ul>
                                             </li>

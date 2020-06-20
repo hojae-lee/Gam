@@ -7,17 +7,19 @@ public class FileListVO {
 	private String file_path;
 	private String file_create_user_seq;
 	private String file_create_dt;
+	private String file_update_dt;
 	
 	public FileListVO() {}
 
 	public FileListVO(int file_seq, String file_nm, String file_path, String file_create_user_seq,
-			String file_create_dt) {
+			String file_create_dt, String file_update_dt) {
 		super();
 		this.file_seq = file_seq;
 		this.file_nm = file_nm;
 		this.file_path = file_path;
 		this.file_create_user_seq = file_create_user_seq;
 		this.file_create_dt = file_create_dt;
+		this.file_update_dt = file_update_dt;
 	}
 
 	public int getFile_seq() {
@@ -58,6 +60,14 @@ public class FileListVO {
 
 	public void setFile_create_dt(String file_create_dt) {
 		this.file_create_dt = file_create_dt;
+	}
+
+	public String getFile_update_dt() {
+		return file_update_dt;
+	}
+
+	public void setFile_update_dt(String file_update_dt) {
+		this.file_update_dt = file_update_dt;
 	}
 	
 }

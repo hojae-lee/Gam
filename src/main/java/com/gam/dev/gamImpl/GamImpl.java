@@ -1,9 +1,20 @@
 package com.gam.dev.gamImpl;
 
+import java.util.ArrayList;
+
+import com.gam.dev.gamVO.ListVO;
+
 /*
- 	getMapper╦╕ ╩Г©Кгр ╟Ф©Л юнемфДюл╫╨ е╦ют аЖа╓ хд  mapper id╟╙╟З ╣©юого╟т ╣Н╥огьаж╪╪©Д.
+ 	getMapperО©╫О©╫ О©╫О©╫О©╫О©╫О©╫ О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫О©╫л╫О©╫ е╦О©╫О©╫ О©╫О©╫О©╫О©╫ О©╫О©╫  mapper idО©╫О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫о╟О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ж╪О©╫О©╫О©╫.
  */
 public interface GamImpl {
-	//ев╫╨ф╝ ╩Ыгц д╚©Нем х╫╪Ж
+	//О©╫в╫О©╫ф╝ О©╫О©╫О©╫О©╫ д╚О©╫О©╫О©╫О©╫ х╫О©╫О©╫
 	public String testSelect();
+	
+	/*
+	 Л·▒Л└╠Л·░ : Л²╢Л·╛М≤╦
+	 Й╦╟К┼╔ : autoSelect, autoSelectName
+	 */
+	public ArrayList<ListVO> autoSelect(String searchValue);
+	public ArrayList<ListVO> autoSelectName(String searchValue);
 }

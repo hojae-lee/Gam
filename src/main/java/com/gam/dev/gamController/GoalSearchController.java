@@ -14,7 +14,7 @@ public class GoalSearchController {
 		private SqlSession sqlS;
 		
 		// 목표 검색
-		@RequestMapping(value = "/search/goalSearch", method = RequestMethod.GET)
+		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
 		public String goalSearch() {
 			System.out.println("");
 			return "search/goalSearch";

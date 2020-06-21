@@ -5,10 +5,13 @@ input {
 }
 
 .table th, .table td {
-	border-right:none;
+/* 	border-right:none;
 	border-left:none;
 	border-top:none;
-	border-bottom:none;
+	border-bottom:none; */
 	/* border-collapse: separate;
 	border-spacing: 0 10px; */
+	
+	padding-left: 0px;
+	padding-right: 0px;
 }

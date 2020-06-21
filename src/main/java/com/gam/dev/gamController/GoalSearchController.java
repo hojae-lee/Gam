@@ -1,8 +1,6 @@
 package com.gam.dev.gamController;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.gam.dev.gamVO.ListVO;
 import com.gam.dev.gamVO.TitleVO;
 import com.gam.dev.gamVO.UserVO;
 

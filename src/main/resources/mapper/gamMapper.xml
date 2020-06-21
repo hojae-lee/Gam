@@ -10,11 +10,30 @@
 			select count(*) from employees
 		</select>
   	-->
-  	<select id = "autoSelect" resultType = "com.gam.dev.gamVO.ListVO">
-  		select list_nm from gam_list where list_nm like '%'||#{value}||'%'
+  	<select id = "autoSelect" resultType = "com.gam.dev.gamVO.TitleVO">
+  		select gam_title_nm from gam_title where gam_title_nm like '%'||#{value}||'%' and rownum <![CDATA[ < ]]> 9 order by gam_seq
   	</select>
   	
   	<select id = "autoSelectName" resultType = "com.gam.dev.gamVO.UserVO">
-  		select user_nicknm from gam_user where user_nicknm like '%'||#{value}||'%'
+  		select user_nicknm from gam_user where user_nicknm like '%'||#{value}||'%' and rownum <![CDATA[ < ]]> 9 order by user_seq
   	</select>
+  	
+  	<select id = "autoSelectType" resultType = "com.gam.dev.gamVO.TitleVO">
+  		select gam_type from gam_title where gam_type like '%'||#{value}||'%' and rownum <![CDATA[ < ]]> 9 order by gam_seq
+  	</select>
+  	
+  	<select id = "searchResultData" resultType = "com.gam.dev.gamVO.TitleVO">
+  		select gam_title.gam_title_nm, gam_title.gam_type, gam_user.user_nicknm from gam_title, gam_user where 1 = 1
+         <if test="param1 != null and param2 == 'user_nicknm'">
+            and ${param2} like '%'||#{param1}||'%'
+         </if>
+         <if test="param1 != null and param2 == 'gam_title_nm'">
+         	and ${param2} like '%'||#{param1}||'%'
+         </if>
+         <if test="param1 != null and param2 == 'gam_type'">
+            and ${param2} like '%'||#{param1}||'%'
+         </if>
+         order by gam_title.gam_seq
+  	</select>
+  	
 </mapper>

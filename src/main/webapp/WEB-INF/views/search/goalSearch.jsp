@@ -11,11 +11,12 @@
 			<div class="searchForm">
 				<div class="searchBackground">
 					<h1>Search for the goal!</h1>
-					<form action="" onsubmit="return GAM.searchCheck();">
+					<form action="../search/goalSearchResult.do" onsubmit="return GAM.searchCheck();">
 						<input type="text" name="searchContents" id="searchContents" placeholder="Let's SEARCH!!">
 						<select name="searchTitle" id="searchTitle">
 							<option value="user_nicknm" selected>닉네임</option>
-							<option value="list_nm">제목</option>
+							<option value="gam_title_nm">제목</option>
+							<option value="gam_type">타입</option>
 						</select>
 						<button type="submit" class="searchButton">SEARCH</button>
 					</form>
@@ -33,12 +34,12 @@
 									<div class="single-services text-center mb-30">
 										<div class="services-ion">
 											<a href="#">
-												<h2>제목</h2>
+												<h2>타입</h2>
 											</a>
 										</div>
 										<div class="services-cap">
 											<a href="#">
-												작성자
+												목표: 작성자
 											</a>
 										</div>
 									</div>

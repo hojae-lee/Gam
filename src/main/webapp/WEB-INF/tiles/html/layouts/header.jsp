@@ -26,7 +26,7 @@
     <script src="${pageContext.request.contextPath}/resources/joinPage/js/globalObject.js"></script>
     
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/setPage/css/set.css">
-    
+        
     <header>
         <!-- Header Start -->
         <div class="header-area">

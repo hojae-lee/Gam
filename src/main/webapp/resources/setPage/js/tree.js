@@ -22,7 +22,7 @@ GAM.row1 = [
 	'<tr id="One"><td>'
 	, '<i class="fas fa-angle-right"></i>'
 	, '&emsp;'
-	, '<input type="text">'
+	, '<input class="form-control" type="text">'
 	, '&emsp;'
 	, '<i class="fa fa-check"></i> <i class="fa fa-times delRow"></i>'
 	, '</td></tr>'
@@ -33,7 +33,7 @@ GAM.row2 = [
 	, '&emsp;&emsp;&emsp;'
 	, '<i class="fas fa-angle-right"></i>'
 	, '&emsp;'
-	, '<input type="text">'
+	, '<input class="form-control" type="text">'
 	, '&emsp;'
 	, '<i class="fa fa-check"></i> <i class="fa fa-times delRow"></i>' 
 	, '</td></tr>'
@@ -44,7 +44,7 @@ GAM.row3 = [
 	, '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'
 	, '<i class="fas fa-angle-right"></i>'
 	, '&emsp;'
-	, '<input type="text">'
+	, '<input class="form-control" type="text">'
 	, '&emsp;'
 	, '<i class="fa fa-check"></i> <i class="fa fa-times delRow"></i>' 
 	, '</td></tr>'
@@ -58,7 +58,7 @@ $(document).on("click", ".addLvOne", function() {
 });
 
 $(document).on("click", ".addLvTwo", function() {
-	var tmpTwo = $(this).parent().parent();
+	var tmpTwo = $(this).closest("tr");
 	
 	$(tmpTwo).after(GAM.addTwo);
 	$(tmpTwo).after(GAM.addThree);
@@ -67,7 +67,7 @@ $(document).on("click", ".addLvTwo", function() {
 });
 
 $(document).on("click", ".addLvThree", function() {
-	var tmpThree = $(this).parent().parent();
+	var tmpThree = $(this).closest("tr");
 	
 	$(tmpThree).after(GAM.addThree);
 	$(tmpThree).after(GAM.row3);

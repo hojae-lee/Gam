@@ -2,15 +2,8 @@
     pageEncoding="utf-8"%>
     
 	<div id="content">
-		<div class="col-md-12">
+		<div>
 			<table class="table" id="table">
-				<!-- <colgroup>
-					<col width="10%"/>
-					<col width="10%"/>
-					<col width="10%"/>
-					<col width="60%"/>
-					<col width="10%"/>
-				</colgroup> -->
 			
 				<thead>
 					<th colspan="3">타이틀 입력란</th>

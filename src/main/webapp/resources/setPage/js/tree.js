@@ -1,25 +1,25 @@
 GAM.addOne = [
-	'<tr><td>'
+	'<tr id="addOne"><td>'
 	, '<i class="fa fa-plus addLvOne"></i>'
 	, '</td></tr>'
 ].join('');
 
 GAM.addTwo = [
-	'<tr><td>'
+	'<tr id="addTwo"><td>'
 	, '&emsp;&emsp;&emsp;'
 	, '<i class="fa fa-plus addLvTwo"></i>'
 	, '</td></tr>'
 ].join('');
 
 GAM.addThree = [
-	'<tr><td>'
+	'<tr id="addThree"><td>'
 	, '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'
 	, '<i class="fa fa-plus addLvThree"></i>'
 	, '</td></tr>'
 ].join('');
 
 GAM.row1 = [
-	'<tr><td>'
+	'<tr id="One"><td>'
 	, '<i class="fas fa-angle-right"></i>'
 	, '&emsp;'
 	, '<input type="text">'
@@ -29,7 +29,7 @@ GAM.row1 = [
 ].join('');
 
 GAM.row2 = [
-	'<tr><td id="Two">'
+	'<tr id="Two"><td>'
 	, '&emsp;&emsp;&emsp;'
 	, '<i class="fas fa-angle-right"></i>'
 	, '&emsp;'
@@ -40,7 +40,7 @@ GAM.row2 = [
 ].join('');
 
 GAM.row3 = [
-	'<tr><td id="Three">'
+	'<tr id="Three"><td>'
 	, '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'
 	, '<i class="fas fa-angle-right"></i>'
 	, '&emsp;'
@@ -58,31 +58,52 @@ $(document).on("click", ".addLvOne", function() {
 });
 
 $(document).on("click", ".addLvTwo", function() {
-	var tmpTwo = $(this).parent();
+	var tmpTwo = $(this).parent().parent();
 	
-	$(tmpTwo).append(GAM.row2);
-	$(tmpTwo).append(GAM.addThree);
-	$(tmpTwo).append(GAM.addTwo);
-	$(this).closest(".addLvTwo").remove();
+	$(tmpTwo).after(GAM.addTwo);
+	$(tmpTwo).after(GAM.addThree);
+	$(tmpTwo).after(GAM.row2);
+	$(this).closest("tr").remove();
 });
 
 $(document).on("click", ".addLvThree", function() {
-	var tmpThree = $(this).parent();
+	var tmpThree = $(this).parent().parent();
 	
-	$(tmpThree).append(GAM.row3);
-	$(tmpThree).append(GAM.addThree);
-	$(this).closest(".addLvThree").remove();
+	$(tmpThree).after(GAM.addThree);
+	$(tmpThree).after(GAM.row3);
+	$(this).closest("tr").remove();
 });
 
 $(document).on("click", ".delRow", function() {
-	var saveLv = $(this).closest("td").attr("id");
-	var tmp = $(this).parent().parent().siblings();
+	var saveLv = $(this).closest("tr").attr("id");
+	var selectedLvTwo = $(this).closest("tr");
+	var selectedLvOne = $(this).closest("tr");
 	
 	if (saveLv == "Three") {
-		$(this).closest("td").remove();
+		$(this).closest("tr").remove();
 	} else if (saveLv == "Two") {
-		tmp[0].remove();
-		$(this).closest("td").remove();
+		while (1) {
+			var nextLvTwo = selectedLvTwo.next();
+			
+			if (nextLvTwo.attr("id") == "Three" || nextLvTwo.attr("id") == "addThree") {
+				nextLvTwo.remove();
+			} else {
+				break;
+			}
+		}
+		$(this).closest("tr").remove();
+	} else if (saveLv == "One") {
+		while (1) {
+			var nextLvOne = selectedLvOne.next();
+			
+			if (nextLvOne.attr("id") == "Two" || nextLvOne.attr("id") == "addTwo"
+				|| nextLvOne.attr("id") == "Three" || nextLvOne.attr("id") == "addThree") {
+				nextLvOne.remove();
+			} else {
+				break;
+			}
+		}
+		$(this).closest("tr").remove();
 	}
 	
 });

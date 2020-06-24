@@ -1,52 +1,65 @@
 GAM.addOne = [
 	'<tr id="addOne"><td>'
-	, '<i class="fa fa-plus addLvOne"></i>'
+	, '<span><i class="fa fa-plus addLvOne fa-1x"></i></span>'
 	, '</td></tr>'
 ].join('');
 
 GAM.addTwo = [
 	'<tr id="addTwo"><td>'
-	, '&emsp;&emsp;&emsp;'
-	, '<i class="fa fa-plus addLvTwo"></i>'
+	, '<span><i class="fa fa-plus addLvTwo fa-1x"></i></span>'
 	, '</td></tr>'
 ].join('');
 
 GAM.addThree = [
 	'<tr id="addThree"><td>'
-	, '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'
-	, '<i class="fa fa-plus addLvThree"></i>'
+	, '<span><i class="fa fa-plus addLvThree fa-1x"></i></span>'
 	, '</td></tr>'
 ].join('');
 
 GAM.row1 = [
-	'<tr id="One"><td>'
-	, '<i class="fas fa-angle-right"></i>'
-	, '&emsp;'
+	'<tr id="One">'
+	, '<td>'
+	, '<div class="input-group mb-2">'
+	, '<div class="input-group-prepend">'
+	, '<span><i class="fas fa-angle-right fa-1x"></i></span>'
+	, '</div>'
 	, '<input class="form-control" type="text">'
-	, '&emsp;'
-	, '<i class="fa fa-check"></i> <i class="fa fa-times delRow"></i>'
-	, '</td></tr>'
+	, '<div class="input-group-append">'
+	, '<span><i class="fa fa-check fa-1x"></i></span>'
+	, '<span><i class="fa fa-times delRow fa-1x"></i></span>'
+	, '</div>'
+	, '</div>'
+	, '</td>'
+	, '</tr>'
 ].join('');
 
 GAM.row2 = [
 	'<tr id="Two"><td>'
-	, '&emsp;&emsp;&emsp;'
-	, '<i class="fas fa-angle-right"></i>'
-	, '&emsp;'
+	, '<div class="input-group mb-2">'
+	, '<div class="input-group-prepend">'
+	, '<span><i class="fas fa-angle-right fa-1x"></i></span>'
+	, '</div>'
 	, '<input class="form-control" type="text">'
-	, '&emsp;'
-	, '<i class="fa fa-check"></i> <i class="fa fa-times delRow"></i>' 
+	, '<div class="input-group-append">'
+	, '<span><i class="fa fa-check fa-1x"></i></span>'
+	, '<span><i class="fa fa-times delRow fa-1x"></i></span>'
+	, '</div>'
+	, '</div>'
 	, '</td></tr>'
 ].join('');
 
 GAM.row3 = [
 	'<tr id="Three"><td>'
-	, '&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;'
-	, '<i class="fas fa-angle-right"></i>'
-	, '&emsp;'
+	, '<div class="input-group mb-2">'
+	, '<div class="input-group-prepend">'
+	, '<span><i class="fas fa-angle-right fa-1x"></i></span>'
+	, '</div>'
 	, '<input class="form-control" type="text">'
-	, '&emsp;'
-	, '<i class="fa fa-check"></i> <i class="fa fa-times delRow"></i>' 
+	, '<div class="input-group-append">'
+	, '<span><i class="fa fa-check fa-1x"></i></span>'
+	, '<span><i class="fa fa-times delRow fa-1x"></i></span>'
+	, '</div>'
+	, '</div>'
 	, '</td></tr>'
 ].join('');
 

@@ -24,8 +24,6 @@
     <script src="${pageContext.request.contextPath}/resources/joinPage/lib/jquery-3.5.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/joinPage/lib/sweetalert2.all.min.js"></script>
     <script src="${pageContext.request.contextPath}/resources/joinPage/js/globalObject.js"></script>
-    
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/setPage/css/set.css">
         
     <header>
         <!-- Header Start -->

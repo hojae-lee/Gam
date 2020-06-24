@@ -1,8 +1,4 @@
-input {
-	width: 700px;
-	height: 25px;
-	line-height: 50px;
-}
+
 
 .table th, .table td {
  	border-right: none;
@@ -13,7 +9,26 @@ input {
 	/* border-collapse: separate;
 	border-spacing: 0 10px; */
 	
-	padding-left: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
+	padding: 0px;
+}
+
+.table #one td, .table #addOne td {
+	padding-top: 30px;
+}
+
+#Two > td , #addTwo > td {
+	padding-left: 50px;
+}
+
+#Three > td, #addThree > td {
+	padding-left: 100px;
+}
+
+#addTwo > td, #addThree > td {
+	padding-bottom: 15px;
+}
+
+span {
+	display: table-cell;
+	padding: 10px 10px 0px 10px;
 }

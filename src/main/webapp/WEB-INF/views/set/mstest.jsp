@@ -1,18 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/setPage/css/set.css">
+    
 	<div id="content">
 		<div>
-			<table class="table" id="table">
+			<table class="table">
 			
 				<thead>
-					<th colspan="3">타이틀 입력란</th>
+					<th>
+						<div class="mb-2">
+							<input class="form-control" type="text" placeholder="목표 제목을 입력해주세요">
+						</div>
+					</th>
 				</thead>
 				
 				<tbody>
-					<tr>
+					<tr id="addOne">
 						<td>
-							<i class="fa fa-plus addLvOne"></i>
+							<span></span><i class="fa fa-plus addLvOne fa-1x"></i></span>
 						</td>
 					</tr>
 				</tbody>

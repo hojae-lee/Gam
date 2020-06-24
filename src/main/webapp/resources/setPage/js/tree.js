@@ -1,18 +1,18 @@
 GAM.addOne = [
 	'<tr id="addOne"><td>'
-	, '<span><i class="fa fa-plus addLvOne fa-1x"></i></span>'
+	, '<span><i class="fa fa-plus-circle fa-1x addLvOne"></i></span>'
 	, '</td></tr>'
 ].join('');
 
 GAM.addTwo = [
 	'<tr id="addTwo"><td>'
-	, '<span><i class="fa fa-plus addLvTwo fa-1x"></i></span>'
+	, '<span><i class="fa fa-plus-circle fa-1x addLvTwo"></i></span>'
 	, '</td></tr>'
 ].join('');
 
 GAM.addThree = [
 	'<tr id="addThree"><td>'
-	, '<span><i class="fa fa-plus addLvThree fa-1x"></i></span>'
+	, '<span><i class="fa fa-plus-circle fa-1x addLvThree"></i></span>'
 	, '</td></tr>'
 ].join('');
 
@@ -21,12 +21,13 @@ GAM.row1 = [
 	, '<td>'
 	, '<div class="input-group mb-2">'
 	, '<div class="input-group-prepend">'
-	, '<span><i class="fas fa-angle-right fa-1x"></i></span>'
+	, '<span><i class="fas fa-star fa-1x"></i></span>'
 	, '</div>'
+	, '<div class="inputControl">'
 	, '<input class="form-control" type="text">'
+	, '</div>'
 	, '<div class="input-group-append">'
-	, '<span><i class="fa fa-check fa-1x"></i></span>'
-	, '<span><i class="fa fa-times delRow fa-1x"></i></span>'
+	, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
 	, '</div>'
 	, '</div>'
 	, '</td>'
@@ -37,12 +38,13 @@ GAM.row2 = [
 	'<tr id="Two"><td>'
 	, '<div class="input-group mb-2">'
 	, '<div class="input-group-prepend">'
-	, '<span><i class="fas fa-angle-right fa-1x"></i></span>'
+	, '<span><i class="far fa-star fa-1x"></i></span>'
 	, '</div>'
+	, '<div class="inputControl">'
 	, '<input class="form-control" type="text">'
+	, '</div>'
 	, '<div class="input-group-append">'
-	, '<span><i class="fa fa-check fa-1x"></i></span>'
-	, '<span><i class="fa fa-times delRow fa-1x"></i></span>'
+	, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
 	, '</div>'
 	, '</div>'
 	, '</td></tr>'
@@ -52,12 +54,13 @@ GAM.row3 = [
 	'<tr id="Three"><td>'
 	, '<div class="input-group mb-2">'
 	, '<div class="input-group-prepend">'
-	, '<span><i class="fas fa-angle-right fa-1x"></i></span>'
+	, '<span><i class="far fa-star fa-1x"></i></span>'
 	, '</div>'
+	, '<div class="inputControl">'
 	, '<input class="form-control" type="text">'
+	, '</div>'
 	, '<div class="input-group-append">'
-	, '<span><i class="fa fa-check fa-1x"></i></span>'
-	, '<span><i class="fa fa-times delRow fa-1x"></i></span>'
+	, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
 	, '</div>'
 	, '</div>'
 	, '</td></tr>'
@@ -92,9 +95,11 @@ $(document).on("click", ".delRow", function() {
 	var selectedLvTwo = $(this).closest("tr");
 	var selectedLvOne = $(this).closest("tr");
 	
-	if (saveLv == "Three") {
+	var checkDel = confirm("해당 목표를 삭제하시겠습니까?")
+	
+	if (checkDel && saveLv == "Three") {
 		$(this).closest("tr").remove();
-	} else if (saveLv == "Two") {
+	} else if (checkDel && saveLv == "Two") {
 		while (1) {
 			var nextLvTwo = selectedLvTwo.next();
 			
@@ -105,7 +110,7 @@ $(document).on("click", ".delRow", function() {
 			}
 		}
 		$(this).closest("tr").remove();
-	} else if (saveLv == "One") {
+	} else if (checkDel && saveLv == "One") {
 		while (1) {
 			var nextLvOne = selectedLvOne.next();
 			

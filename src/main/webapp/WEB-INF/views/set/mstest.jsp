@@ -18,12 +18,17 @@
 				<tbody>
 					<tr id="addOne">
 						<td>
-							<span></span><i class="fa fa-plus addLvOne fa-1x"></i></span>
+							<span><i class="fa fa-plus-circle addLvOne fa-1x"></i></span>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
+		
+		<div>
+			
+		</div>
+		
 	</div>
 	
 	

@@ -1,4 +1,7 @@
-
+span {
+	display: table-cell;
+	padding: 10px 10px 0px 10px;
+}
 
 .table th, .table td {
  	border-right: none;
@@ -28,7 +31,6 @@
 	padding-bottom: 15px;
 }
 
-span {
-	display: table-cell;
-	padding: 10px 10px 0px 10px;
+.inputControl {
+	flex: 0.7 auto;
 }

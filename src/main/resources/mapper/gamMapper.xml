@@ -22,6 +22,18 @@
   		select gam_type from gam_title where gam_type like '%'||#{value}||'%' and rownum <![CDATA[ < ]]> 9 order by gam_seq
   	</select>
   	
+  	<select id="relationTitleSearchList" resultType = "com.gam.dev.gamVO.TitleVO">
+  		select gam_title_nm from gam_title where category_seq = (select category_seq from gam_title where gam_title_nm = #{value}) and rownum <![CDATA[ < ]]> 9
+  	</select>
+  	
+  	<select id="relationNickSearchList" resultType = "com.gam.dev.gamVO.TitleVO">
+  		select t2.gam_title_nm from gam_user t1 inner join gam_title t2 on t1.user_seq = t2.gam_update_user_seq where t1.user_nicknm = #{value} and rownum <![CDATA[ < ]]> 9
+  	</select>
+  	
+  	<select id="relationTypeSearchList" resultType = "com.gam.dev.gamVO.TitleVO">
+  		select gam_title_nm from gam_title where gam_type = #{value} and rownum <![CDATA[ < ]]> 9
+  	</select>
+  	
   	<select id = "searchResultData" resultType = "com.gam.dev.gamVO.TitleVO">
   		select gam_title.gam_title_nm, gam_title.gam_type, gam_user.user_nicknm from gam_title, gam_user where 1 = 1
          <if test="param1 != null and param2 == 'user_nicknm'">

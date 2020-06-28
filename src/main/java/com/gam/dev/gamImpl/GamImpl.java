@@ -20,4 +20,8 @@ public interface GamImpl {
 	public ArrayList<UserVO> autoSelectName(String searchValue);
 	public ArrayList<TitleVO> autoSelectType(String searchValue);
 	public ArrayList<TitleVO> searchResultData(String searchContents, String searchTitle);
+	public ArrayList<TitleVO> relationTitleSearchList(String searchContents);
+	public ArrayList<TitleVO> relationNickSearchList(String searchContents);
+	public ArrayList<TitleVO> relationTypeSearchList(String searchContents);
+	
 }

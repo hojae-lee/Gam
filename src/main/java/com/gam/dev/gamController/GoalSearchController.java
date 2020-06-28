@@ -62,7 +62,24 @@ public class GoalSearchController {
 			String searchTitle = (req.getParameter("searchTitle") == "" && req.getParameter("searchTitle") == null) ? "user_nicknm" : req.getParameter("searchTitle");
 			
 			ArrayList gam_list = null;
+			ArrayList gam_relationSearchList = new ArrayList<TitleVO>();
+			switch (searchTitle) {
+				case "gam_title_nm": 
+					gam_relationSearchList = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).relationTitleSearchList(searchContents);
+					break;
+				case "user_nicknm":
+					gam_relationSearchList = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).relationNickSearchList(searchContents);
+					break;
+				case "gam_type":
+					gam_relationSearchList = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).relationTypeSearchList(searchContents);
+					break;
+			}
+			
 			gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).searchResultData(searchContents, searchTitle);
+			if (gam_relationSearchList.size() > 0) {
+				mv.addObject("relationOk", "relationOk");
+				mv.addObject("relationList", gam_relationSearchList);
+			}
 			mv.addObject("list", gam_list);
 			
 			mv.setViewName("search/goalSearch");

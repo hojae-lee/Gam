@@ -2,7 +2,7 @@
  작성자 : 이재호
  기능 : jquery ui를 이용한 자동완성 기능.
  */
-GAM.autoSerach = () => {
+GAM.autoSearch = () => {
 	(() => {
 		$('#searchContents').autocomplete({
 			source : (req, res) => {
@@ -27,8 +27,6 @@ GAM.autoSerach = () => {
 		});
 	})();
 };
-GAM.autoSerach();
-
 
 /*
  작성자 : 이재호
@@ -57,8 +55,21 @@ GAM.searchCheck = () => {
 */
  
 document.getElementById('searchContents').onkeyup = e => {
+	if (GAM.autoSearch) GAM.autoSearch();
 	if (e.srcElement && e.srcElement.value.length > 30) {
 		document.getElementById('searchContents').value = e.srcElement.value.substring(0, 29);
 		return alert("검색 하고자 하는 길이를 초과하였습니다.");
+	}
+}
+
+/*
+ 작성자 : 이재호
+ 기능 : 연관 검색어 클릭시 검색
+*/
+GAM.relationSearch = (type) => {
+	const reBtn = document.getElementById('reBtn');
+	if (reBtn && type === 'gam_title_nm') {
+		location.href = '../search/goalSearchResult.do?searchContents='+reBtn.textContent + '&searchTitle=' + type;
+		reBtn.submit();
 	}
 }

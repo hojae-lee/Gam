@@ -3,6 +3,10 @@ span {
 	padding: 10px 10px 0px 10px;
 }
 
+tfoot tr {
+	padding-top: 10px;
+}
+
 .table th, .table td {
  	border-right: none;
 	border-left: none;
@@ -31,6 +35,27 @@ span {
 	padding-bottom: 15px;
 }
 
-.inputControl {
+.form-control {
+	display: inline;
+}
+
+.lvOneInput {
 	flex: 0.7 auto;
+}
+
+.lvTwoInput {
+	flex: 0.8 auto;
+}
+
+.lvThreeInput {
+	flex: 0.9 auto;
+}
+
+.text {
+	width: 76%;
+}
+
+.peri {
+	text-align:center;
+	width: 24%;
 }

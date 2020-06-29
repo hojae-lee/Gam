@@ -34,10 +34,10 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/mstest", method = RequestMethod.GET)
+	@RequestMapping(value = "/goaladd", method = RequestMethod.GET)
 	public ModelAndView mstest() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("set/mstest");
+		mv.setViewName("set/goalAdd");
 		return mv;
 	}
 	

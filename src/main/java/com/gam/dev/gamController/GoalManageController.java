@@ -3,6 +3,9 @@ package com.gam.dev.gamController;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.gam.dev.gamVO.TitleVO;
 
 @Controller
 public class GoalManageController {
@@ -26,6 +29,12 @@ public class GoalManageController {
 //			} else if() {
 //				
 //			}
+			
+			return "";
+		}
+		
+		@PostMapping("regGoal")
+		public String regTitle(TitleVO vo) {
 			
 			return "";
 		}

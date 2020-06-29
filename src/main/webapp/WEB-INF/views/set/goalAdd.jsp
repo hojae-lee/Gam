@@ -5,13 +5,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/joinPage/css/setCSS/daterangepicker.css">
     
 	<div id="content">
-		<div>
+		<form>
 			<table class="table">
 			
 				<thead>
 					<th>
-						<div class="mb-2">
-							<input class="form-control" type="text" placeholder="목표 제목을 입력해주세요">
+						<div class="input-group mb-2">
+							<input type="text" class="form-control" style="width:70%" placeholder="목표 제목을 입력해주세요">
+							<input type="text" class="form-control peri" style="width:30%; font-size:20px" placeholder="전체 기간 설정">
 						</div>
 					</th>
 				</thead>
@@ -27,18 +28,15 @@
 				<tfoot>
 					<tr>
 						<td>
-							<input type="submit" class="btn btn-success" value="제출!">
-							<input type="submit" class="btn btn-danger" value="취소!">
+							<div>
+								<input type="submit" class="btn btn-success" value="저장">
+								<input type="reset" class="btn btn-danger" value="취소">
+							</div>
 						</td>
 					</tr>
 				</tfoot>
 			</table>
-		</div>
-		
-		<div>
-			
-		</div>
-		
+		</form>
 	</div>
 	
 	

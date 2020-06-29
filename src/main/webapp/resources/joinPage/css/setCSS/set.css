@@ -3,8 +3,13 @@ span {
 	padding: 10px 10px 0px 10px;
 }
 
-tfoot tr {
-	padding-top: 10px;
+/* input {
+	box-shadow: 0 0 5px rgba(255, 90, 90, 1);
+    border: 1px solid rgba(255, 90, 90, 1);
+} */
+
+tfoot div {
+	text-align: center;
 }
 
 .table th, .table td {
@@ -23,7 +28,7 @@ tfoot tr {
 	padding-top: 30px;
 }
 
-#Two > td , #addTwo > td {
+#Two > td, #addTwo > td {
 	padding-left: 50px;
 }
 
@@ -56,6 +61,6 @@ tfoot tr {
 }
 
 .peri {
-	text-align:center;
+	text-align: center;
 	width: 24%;
 }

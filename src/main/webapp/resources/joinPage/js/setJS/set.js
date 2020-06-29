@@ -2,7 +2,7 @@
 	
 	addOne = [
 		'<tr id="addOne"><td>'
-		, '<span><i class="fa fa-plus-circle fa-1x addLvOne"></i></span>'
+		, '<span><i id="add" class="fa fa-plus-circle fa-1x"></i></span>'
 		, '</td></tr>'
 	].join('');
 
@@ -25,8 +25,8 @@
 		, '<span><i class="fas fa-star fa-1x"></i></span>'
 		, '</div>'
 		, '<div class="lvOneInput">'
-		, '<input type="text" class="form-control text">'
-		, '<input type="text" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" id="text" class="form-control text">'
+		, '<input type="text" id="peri" class="form-control peri" placeholder="기간 설정">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -42,8 +42,8 @@
 		, '<span><i class="far fa-star fa-1x"></i></span>'
 		, '</div>'
 		, '<div class="lvTwoInput">'
-		, '<input type="text" class="form-control text">'
-		, '<input type="text" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" id="text" class="form-control text">'
+		, '<input type="text" id="peri" class="form-control peri" placeholder="기간 설정">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -59,8 +59,8 @@
 		, '<span><i class="far fa-star fa-1x"></i></span>'
 		, '</div>'
 		, '<div class="lvThreeInput">'
-		, '<input type="text" class="form-control text">'
-		, '<input type="text" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" id="text" class="form-control text">'
+		, '<input type="text" id="peri" class="form-control peri" placeholder="기간 설정">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -69,11 +69,31 @@
 		, '</td></tr>'
 	].join('');
 	
-	$(document).on("click", ".addLvOne", function() {
-		$(".table").append(row1);
-		$(".table").append(addTwo);
-		$(".table").append(addOne);
-		$(this).closest("tr").remove();
+	var lvOneCount = 0;
+	var lvTwoCount = 0;
+	var lvThreeCount = 0;
+	
+	$(document).on("click", "#add", function() {
+		var tmpCount = $(this).closest("tr").siblings();
+		
+		for (var i = 0; i < tmpCount.length; i++) {
+			if (tmpCount[i].id == "One")
+				lvOneCount++;
+			else if (tmpCount[i].id == "Two")
+				lvTwoCount++;
+			else if (tmpCount[i].id == "Three")
+				lvThreeCount++;			
+		}
+		
+		if (lvOneCount < 3) {
+			$(".table").append(row1);
+			$(".table").append(addTwo);
+			$(".table").append(addOne);
+			$(this).closest("tr").remove();
+		} else {
+			alert("초과");
+			return false;
+		}
 	});
 	
 	$(document).on("click", ".addLvTwo", function() {
@@ -98,7 +118,7 @@
 		var selectedLvTwo = $(this).closest("tr");
 		var selectedLvOne = $(this).closest("tr");
 		
-		var checkDel = confirm("해당 목표를 삭제하시겠습니까?")
+		var checkDel = confirm("해당 목표를 삭제하시겠습니까?\n(하위 행들도 삭제됩니다)")
 		
 		if (checkDel && saveLv == "Three") {
 			$(this).closest("tr").remove();
@@ -135,6 +155,18 @@
 		}, function(start, end, label) {
 			console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
 		});
+	});
+	
+	$(document).on("focusout", "input", function() {
+		var saveInput = $(this);
+		
+		if (!saveInput.val()) {
+			saveInput.css('box-shadow', '0 0 5px rgba(255, 90, 90, 1)');
+			saveInput.css('border', '1px solid rgba(255, 90, 90, 1)');
+		} else {
+			saveInput.css('box-shadow', 'none');
+			saveInput.css('border', '1px solid rgb(206, 212, 218)');
+		}
 	});
 	
 })();

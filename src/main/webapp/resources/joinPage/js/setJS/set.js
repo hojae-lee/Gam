@@ -2,7 +2,7 @@
 	
 	addOne = [
 		'<tr id="addOne"><td>'
-		, '<span><i id="add" class="fa fa-plus-circle fa-1x"></i></span>'
+		, '<span><i class="fa fa-plus-circle fa-1x addLvOne"></i></span>'
 		, '</td></tr>'
 	].join('');
 
@@ -73,27 +73,11 @@
 	var lvTwoCount = 0;
 	var lvThreeCount = 0;
 	
-	$(document).on("click", "#add", function() {
-		var tmpCount = $(this).closest("tr").siblings();
-		
-		for (var i = 0; i < tmpCount.length; i++) {
-			if (tmpCount[i].id == "One")
-				lvOneCount++;
-			else if (tmpCount[i].id == "Two")
-				lvTwoCount++;
-			else if (tmpCount[i].id == "Three")
-				lvThreeCount++;			
-		}
-		
-		if (lvOneCount < 3) {
-			$(".table").append(row1);
-			$(".table").append(addTwo);
-			$(".table").append(addOne);
-			$(this).closest("tr").remove();
-		} else {
-			alert("초과");
-			return false;
-		}
+	$(document).on("click", ".addLvOne", function() {
+		$(".table").append(row1);
+		$(".table").append(addTwo);
+		$(".table").append(addOne);
+		$(this).closest("tr").remove();
 	});
 	
 	$(document).on("click", ".addLvTwo", function() {

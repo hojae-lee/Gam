@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.gam.dev.gamVO.ListVO;
 import com.gam.dev.gamVO.TitleVO;
 
 @Controller
@@ -35,6 +36,12 @@ public class GoalManageController {
 		
 		@PostMapping("regGoal")
 		public String regTitle(TitleVO vo) {
+			
+			return "";
+		}
+		
+		@PostMapping("regGoal")
+		public String regList(ListVO vo) {
 			
 			return "";
 		}

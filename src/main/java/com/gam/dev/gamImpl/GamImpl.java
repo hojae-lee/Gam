@@ -23,6 +23,6 @@ public interface GamImpl {
 		최민성
 		
 	*/
-	public ArrayList<TitleVO> regTitle(int regCheck);
-	public ArrayList<ListVO> regList(int regCheck);
+	public ArrayList<TitleVO> regTitle(TitleVO vo);
+	public ArrayList<ListVO> regList(TitleVO vo);
 }

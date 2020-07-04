@@ -1,5 +1,7 @@
 (function (addOne, addTwo, addThree, row1, row2, row3) {
 	
+	var fm = document.regGoal;
+	
 	addOne = [
 		'<tr id="addOne"><td>'
 		, '<span><i class="fa fa-plus-circle fa-1x addLvOne"></i></span>'
@@ -95,6 +97,7 @@
 		$(tmpThree).after(addThree);
 		$(tmpThree).after(row3);
 		$(this).closest("tr").remove();
+
 	});
 
 	$(document).on("click", ".delRow", function() {
@@ -152,5 +155,7 @@
 			saveInput.css('border', '1px solid rgb(206, 212, 218)');
 		}
 	});
+	
+	
 	
 })();

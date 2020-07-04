@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/joinPage/css/setCSS/daterangepicker.css">
     
 	<div id="content">
-		<form>
+		<form name="regGoal" method="post" action="regGoal">
 			<table class="table">
 			
 				<thead>
@@ -30,7 +30,7 @@
 						<td>
 							<div>
 								<input type="submit" class="btn btn-success" value="저장">
-								<input type="reset" class="btn btn-danger" value="취소">
+								<input type="reset" class="btn btn-danger" value="초기화">
 							</div>
 						</td>
 					</tr>

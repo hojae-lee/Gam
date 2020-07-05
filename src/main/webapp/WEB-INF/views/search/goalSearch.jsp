@@ -22,8 +22,8 @@
 				</form>
 				<c:if test="${relationOk eq 'relationOk' }">
 					<p class="reP">연관검색어 <i class="fa fa-question"></i></p>
-					<c:forEach items="${relationList }" var="relationList">
-						<button type="button" id="reBtn" onclick="GAM.relationSearch('gam_title_nm');">${relationList.gam_title_nm}</button>
+					<c:forEach items="${relationList }" var="relationList" varStatus="loop">
+						<button type="button" class="reBtn" onclick="GAM.relationSearch('gam_title_nm', this);">${relationList.gam_title_nm}</button>
 					</c:forEach>
 				</c:if>
 			</div>
@@ -36,22 +36,25 @@
 					<div class="container">
 						<div class="row d-flex justify-contnet-center">
 							<!-- list 갯수만큼 루프 돌릴 영역 시작-->
-							<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
-								<div class="single-services text-center mb-30">
-									<div class="services-ion">
-										<a href="#">
-											<h2>타입</h2>
-										</a>
-									</div>
-									<div class="services-cap">
-										<a href="#">
-											목표: 작성자
-										</a>
+							<c:forEach items="${list }" var="row" varStatus="loop">
+								<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+									<div class="single-services text-center mb-30">
+										<div class="services-ion">
+											<a href="#">
+											<h2>${row.category_seq}</h2>
+												<h2>${row.gam_type}</h2>
+											</a>
+										</div>
+										<div class="services-cap">
+											<a href="#">
+												${row.gam_title_nm}: ${row.user_nicknm}
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
+							</c:forEach>
 							<!-- list 갯수만큼 루프 돌릴 영역 끝 -->
-							<div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
+							<!-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6">
 								<div class="single-services text-center mb-30">
 									<div class="services-ion">
 										<span class="flaticon-tour"></span>
@@ -100,7 +103,7 @@
 										<h5>98% Our Travelers<br>are Happy</h5>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

@@ -56,9 +56,12 @@ GAM.keySearchEventList = () => {
 	 기능 : Contents에 길이30자 이상 입력 시 이상 입력하지 못 하도록 막는다. -- 삭제
 	 추가 : keydown, keyup 삭제 event 관련 오류 있을시 추가 할 영역.
 	 */
-//	document.getElementById('searchContents').onkeydown = e => {
-//		keyCanCelEvent(e);
-//	}
+	document.getElementById('searchContents').onkeydown = e => {
+		if (e.keyCode === 38 || e.keyCode === 40) {
+			keyCanCelEvent(e);
+			return false;
+		}
+	}
 //	
 //	document.getElementById('searchContents').onkeyup = e => {
 //		keyCanCelEvent(e);
@@ -90,11 +93,17 @@ GAM.keySearchEventList = () => {
  작성자 : 이재호
  기능 : 연관 검색어 클릭시 검색
 */
-GAM.relationSearch = (type) => {
-	const reBtn = document.getElementById('reBtn');
-	if (reBtn && type === 'gam_title_nm') {
-		location.href = '../search/goalSearchResult.do?searchContents='+reBtn.textContent + '&searchTitle=' + type;
-		reBtn.submit();
+GAM.relationSearch = (type, obj) => {
+//	const reBtn = document.getElementById('reBtn');
+	const reBtn = document.querySelectorAll('.reBtn');
+	if (reBtn.length > 0 && type === 'gam_title_nm') {
+		reBtn.forEach(function(item) {
+			if(item.textContent === obj.textContent) {
+				location.href = '../search/goalSearchResult.do?searchContents='+item.textContent + '&searchTitle=' + type;
+				item.submit();
+				return false;
+			}
+		});
 	}
 }
 

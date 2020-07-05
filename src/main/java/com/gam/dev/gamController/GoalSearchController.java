@@ -74,12 +74,12 @@ public class GoalSearchController {
 					gam_relationSearchList = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).relationTypeSearchList(searchContents);
 					break;
 			}
-			
 			gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).searchResultData(searchContents, searchTitle);
 			if (gam_relationSearchList.size() > 0) {
 				mv.addObject("relationOk", "relationOk");
 				mv.addObject("relationList", gam_relationSearchList);
 			}
+			
 			mv.addObject("list", gam_list);
 			
 			mv.setViewName("search/goalSearch");

@@ -49,18 +49,42 @@ GAM.searchCheck = () => {
     }
 }
 
-/*
- 작성자 : 이재호
- 기능 : Contents에 길이30자 이상 입력 시 이상 입력하지 못 하도록 막는다.
-*/
- 
-document.getElementById('searchContents').onkeyup = e => {
-	if (GAM.autoSearch) GAM.autoSearch();
-	if (e.srcElement && e.srcElement.value.length > 30) {
-		document.getElementById('searchContents').value = e.srcElement.value.substring(0, 29);
-		return alert("검색 하고자 하는 길이를 초과하였습니다.");
+// 검색시 이벤트 함수.
+GAM.keySearchEventList = () => {
+	/*
+	 작성자 : 이재호
+	 기능 : Contents에 길이30자 이상 입력 시 이상 입력하지 못 하도록 막는다. -- 삭제
+	 추가 : keydown, keyup 삭제 event 관련 오류 있을시 추가 할 영역.
+	 */
+//	document.getElementById('searchContents').onkeydown = e => {
+//		keyCanCelEvent(e);
+//	}
+//	
+//	document.getElementById('searchContents').onkeyup = e => {
+//		keyCanCelEvent(e);
+//	}
+	
+	/*
+	작성자 : 이재호
+	기능 : Contents에 길이30자 이상 입력 시 이상 입력하지 못 하도록 막는다. keydown, keyup => oninput으로 수정. IE같은 경우 keyup에서 처리해야 할 수도 있음.
+	추가 : oninput 이벤트로 수정.
+	 */
+	
+	document.getElementById('searchContents').oninput = e => {
+		if (e.srcElement && e.srcElement.value.length > 30) {
+			alert("검색 하고자 하는 길이를 초과하였습니다.");
+			e.srcElement.value = "";
+			keyCanCelEvent(e);
+			return false;
+		}
+	}
+	
+	function keyCanCelEvent(e) {
+		e.preventDefault();
+		e.stopPropagation();
 	}
 }
+
 
 /*
  작성자 : 이재호
@@ -73,3 +97,7 @@ GAM.relationSearch = (type) => {
 		reBtn.submit();
 	}
 }
+
+//이벤트 비동기 문제로 위치 수정.
+GAM.autoSearch();
+GAM.keySearchEventList();

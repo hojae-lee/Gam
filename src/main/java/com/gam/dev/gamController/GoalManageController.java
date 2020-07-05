@@ -34,17 +34,15 @@ public class GoalManageController {
 			return "";
 		}
 		
-		@PostMapping("regGoal")
-		public String regTitle(TitleVO vo) {
-			
-			return "";
-		}
-		
-		@PostMapping("regGoal")
-		public String regList(ListVO vo) {
-			
-			return "";
-		}
+	/*
+	 * @PostMapping("regGoal") public String regTitle(TitleVO vo) {
+	 * 
+	 * return ""; }
+	 * 
+	 * @PostMapping("regGoal") public String regList(ListVO vo) {
+	 * 
+	 * return ""; }
+	 */
 		
 		// 목표카피
 		public void goalCopy() {

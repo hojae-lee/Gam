@@ -72,46 +72,104 @@
 	].join('');
 	
 	var lvOneCount = 0;
-	var lvTwoCount = 0;
-	var lvThreeCount = 0;
-	
 	$(document).on("click", ".addLvOne", function() {
-		$(".table").append(row1);
-		$(".table").append(addTwo);
-		$(".table").append(addOne);
-		$(this).closest("tr").remove();
+		var tmpOne = $(this).closest("tr");
+		var tOne = tmpOne.prev();
+		
+		while (true) {
+			if (tOne.attr("id") == "One") {
+				lvOneCount++;
+			} else if (tOne.attr("id") == undefined) {
+				break;
+			} else {}
+			tOne = tOne.prev();
+		}
+		
+		if (lvOneCount < 2) {
+			$(".table").append(row1);
+			$(".table").append(addTwo);
+			$(".table").append(addOne);
+			$(this).closest("tr").remove();
+		} else {
+			$(".table").append(row1);
+			$(".table").append(addTwo);
+			$(this).closest("tr").remove();
+		}
+
 	});
 	
+	var lvTwoCount = 0;
 	$(document).on("click", ".addLvTwo", function() {
 		var tmpTwo = $(this).closest("tr");
+		var tTwo = tmpTwo.prev();
 		
-		$(tmpTwo).after(addTwo);
-		$(tmpTwo).after(addThree);
-		$(tmpTwo).after(row2);
-		$(this).closest("tr").remove();
+		while (tTwo.attr("id") !== "One") {
+			if (tTwo.attr("id") == "Two") {
+				lvTwoCount++;
+			}			
+			tTwo = tTwo.prev();
+		}
+		
+		if (lvTwoCount < 2) {
+			$(tmpTwo).after(addTwo);
+			$(tmpTwo).after(addThree);
+			$(tmpTwo).after(row2);
+			$(this).closest("tr").remove();
+		} else {
+			$(tmpTwo).after(addThree);
+			$(tmpTwo).after(row2);
+			$(this).closest("tr").remove();
+		}
 	});
-
+	
+	var lvThreeCount = 0;
 	$(document).on("click", ".addLvThree", function() {
 		var tmpThree = $(this).closest("tr");
+		var tThree = tmpThree.prev();
 		
-		$(tmpThree).after(addThree);
-		$(tmpThree).after(row3);
-		$(this).closest("tr").remove();
-
+		while (tThree.attr("id") !== "Two") {
+			lvThreeCount++;
+			tThree = tThree.prev();
+		}
+		
+		if (lvThreeCount < 2) {
+			$(tmpThree).after(addThree);
+			$(tmpThree).after(row3);
+			$(this).closest("tr").remove();
+		} else {
+			$(tmpThree).after(row3);
+			$(this).closest("tr").remove();
+		}
 	});
-
+	
+	var countDel = 0;
 	$(document).on("click", ".delRow", function() {
-		var saveLv = $(this).closest("tr").attr("id");
-		var selectedLvTwo = $(this).closest("tr");
-		var selectedLvOne = $(this).closest("tr");
+		var saveLv = $(this).closest("tr");
+		var countLv = saveLv;
+		var countArr, i = 0;
 		
 		var checkDel = confirm("해당 목표를 삭제하시겠습니까?\n(하위 행들도 삭제됩니다)")
 		
-		if (checkDel && saveLv == "Three") {
-			$(this).closest("tr").remove();
-		} else if (checkDel && saveLv == "Two") {
-			while (1) {
-				var nextLvTwo = selectedLvTwo.next();
+		if (checkDel && saveLv.attr("id") == "Three") {
+			while (countLv.attr("id") !== "Two") {
+				countLv = countLv.prev();
+			}
+			
+			while (countLv.attr("id") == "Three") {
+				countArr[i] = countLv;
+				i++; lvThreeCount++;
+				countLv = countLv.next();
+			}
+			
+			if (lvThreeCount == 2) {
+				countArr[i].after(addThree);
+				$(this).closest("tr").remove();
+			} else 
+				$(this).closest("tr").remove();
+			
+		} else if (checkDel && saveLv.attr("id") == "Two") {
+			while (true) {
+				var nextLvTwo = saveLv.next();
 				
 				if (nextLvTwo.attr("id") == "Three" || nextLvTwo.attr("id") == "addThree") {
 					nextLvTwo.remove();
@@ -120,9 +178,9 @@
 				}
 			}
 			$(this).closest("tr").remove();
-		} else if (checkDel && saveLv == "One") {
-			while (1) {
-				var nextLvOne = selectedLvOne.next();
+		} else if (checkDel && saveLv.attr("id") == "One") {
+			while (true) {
+				var nextLvOne = saveLv.next();
 				
 				if (nextLvOne.attr("id") == "Two" || nextLvOne.attr("id") == "addTwo"
 					|| nextLvOne.attr("id") == "Three" || nextLvOne.attr("id") == "addThree") {
@@ -155,7 +213,5 @@
 			saveInput.css('border', '1px solid rgb(206, 212, 218)');
 		}
 	});
-	
-	
 	
 })();

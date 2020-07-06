@@ -89,13 +89,13 @@
 			$(".table").append(row1);
 			$(".table").append(addTwo);
 			$(".table").append(addOne);
-			$(this).closest("tr").remove();
+			tmpOne.remove();
 		} else {
 			$(".table").append(row1);
 			$(".table").append(addTwo);
-			$(this).closest("tr").remove();
+			tmpOne.remove();
 		}
-
+		lvOneCount = 0;
 	});
 	
 	var lvTwoCount = 0;
@@ -111,15 +111,16 @@
 		}
 		
 		if (lvTwoCount < 2) {
-			$(tmpTwo).after(addTwo);
-			$(tmpTwo).after(addThree);
-			$(tmpTwo).after(row2);
-			$(this).closest("tr").remove();
+			tmpTwo.after(addTwo);
+			tmpTwo.after(addThree);
+			tmpTwo.after(row2);
+			tmpTwo.remove();
 		} else {
-			$(tmpTwo).after(addThree);
-			$(tmpTwo).after(row2);
-			$(this).closest("tr").remove();
+			tmpTwo.after(addThree);
+			tmpTwo.after(row2);
+			tmpTwo.remove();
 		}
+		lvTwoCount = 0;
 	});
 	
 	var lvThreeCount = 0;
@@ -133,41 +134,60 @@
 		}
 		
 		if (lvThreeCount < 2) {
-			$(tmpThree).after(addThree);
-			$(tmpThree).after(row3);
-			$(this).closest("tr").remove();
+			tmpThree.after(addThree);
+			tmpThree.after(row3);
+			tmpThree.remove();
 		} else {
-			$(tmpThree).after(row3);
-			$(this).closest("tr").remove();
+			tmpThree.after(row3);
+			tmpThree.remove();
 		}
+		lvThreeCount = 0;
 	});
 	
 	var countDel = 0;
 	$(document).on("click", ".delRow", function() {
 		var saveLv = $(this).closest("tr");
 		var countLv = saveLv;
-		var countArr, i = 0;
 		
 		var checkDel = confirm("해당 목표를 삭제하시겠습니까?\n(하위 행들도 삭제됩니다)")
 		
 		if (checkDel && saveLv.attr("id") == "Three") {
+			
 			while (countLv.attr("id") !== "Two") {
 				countLv = countLv.prev();
 			}
 			
-			while (countLv.attr("id") == "Three") {
-				countArr[i] = countLv;
-				i++; lvThreeCount++;
+			while (true) {
 				countLv = countLv.next();
+				countDel++;
+				if (countLv.attr("id") !== "Three")
+					break;
 			}
 			
-			if (lvThreeCount == 2) {
-				countArr[i].after(addThree);
-				$(this).closest("tr").remove();
+			if (countDel == 4) {
+				countLv.before(addThree);
+				saveLv.remove();
 			} else 
-				$(this).closest("tr").remove();
+				saveLv.remove();
+			
+			countDel = 0;
 			
 		} else if (checkDel && saveLv.attr("id") == "Two") {
+			
+			while (countLv.attr("id") !== "One") {
+				countLv = countLv.prev();
+			}
+			
+			while (true) {
+				countLv = countLv.next();
+				if (countLv.attr("id") == "Two") {
+					countDel++;
+				}
+				if (countLv.attr("id") == "One" || countLv.attr("id") == "addOne") {
+					break;
+				}
+			}
+			
 			while (true) {
 				var nextLvTwo = saveLv.next();
 				
@@ -177,8 +197,32 @@
 					break;
 				}
 			}
-			$(this).closest("tr").remove();
+			
+			if (countDel == 3) {
+				countLv.before(addTwo);
+				saveLv.remove();
+			} else {
+				saveLv.remove();
+			}
+			
+			countDel = 0;
+			
 		} else if (checkDel && saveLv.attr("id") == "One") {
+			var nextLvOne = saveLv.next();
+			var countOne, countOne2;
+			
+			while (countLv.attr("id") !== undefined) {
+				countOne = countLv;
+				countLv = countLv.prev();
+			}
+			
+			while (countOne.next().attr("id") !== undefined) {
+				if (countOne.attr("id") == "One") {
+					countDel++;
+				}
+				countOne = countOne.next();
+			}
+			
 			while (true) {
 				var nextLvOne = saveLv.next();
 				
@@ -189,7 +233,13 @@
 					break;
 				}
 			}
-			$(this).closest("tr").remove();
+			if (countDel == 3) {
+				countOne.after(addOne);
+				saveLv.remove();
+			} else {
+				saveLv.remove();
+			}
+			countDel = 0;
 		}
 		
 	});

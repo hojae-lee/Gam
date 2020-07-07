@@ -209,11 +209,14 @@
 			
 		} else if (checkDel && saveLv.attr("id") == "One") {
 			var nextLvOne = saveLv.next();
-			var countOne, countOne2;
+			var countOne; checkLast = 0;
 			
 			while (countLv.attr("id") !== undefined) {
 				countOne = countLv;
 				countLv = countLv.prev();
+				if (countLv.attr("id") == "One") {
+					checkLast++;
+				}
 			}
 			
 			while (countOne.next().attr("id") !== undefined) {
@@ -233,12 +236,22 @@
 					break;
 				}
 			}
+			
 			if (countDel == 3) {
-				countOne.after(addOne);
-				saveLv.remove();
+				if (checkLast == 2) {
+					saveLv.before(addOne);
+					saveLv.remove();
+				} else {
+					countOne.after(addOne);
+					saveLv.remove();
+				}
 			} else {
 				saveLv.remove();
 			}
+			
+			console.log(countOne.attr("class"));
+			console.log(countDel);
+			
 			countDel = 0;
 		}
 		

@@ -2,24 +2,28 @@
 	
 	var fm = document.regGoal;
 	
+	// Level 1 추가 행
 	addOne = [
 		'<tr id="addOne"><td>'
 		, '<span><i class="fa fa-plus-circle fa-1x addLvOne"></i></span>'
 		, '</td></tr>'
 	].join('');
 
+	// Level 2 추가 행
 	addTwo = [
 		'<tr id="addTwo"><td>'
 		, '<span><i class="fa fa-plus-circle fa-1x addLvTwo"></i></span>'
 		, '</td></tr>'
 	].join('');
 
+	// Level 3 추가 행
 	addThree = [
 		'<tr id="addThree"><td>'
 		, '<span><i class="fa fa-plus-circle fa-1x addLvThree"></i></span>'
 		, '</td></tr>'
 	].join('');
-
+	
+	// Level 1
 	row1 = [
 		'<tr id="One"><td>'
 		, '<div class="input-group mb-2">'
@@ -27,8 +31,8 @@
 		, '<span><i class="fas fa-star fa-1x"></i></span>'
 		, '</div>'
 		, '<div class="lvOneInput">'
-		, '<input type="text" id="text" class="form-control text">'
-		, '<input type="text" id="peri" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" name="lvOneText" id="text" class="form-control text">'
+		, '<input type="text" name="lvOnePeri" id="peri" class="form-control peri" placeholder="기간 설정">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -37,6 +41,7 @@
 		, '</td></tr>'
 	].join('');
 	
+	// Level 2
 	row2 = [
 		'<tr id="Two"><td>'
 		, '<div class="input-group mb-2">'
@@ -44,8 +49,8 @@
 		, '<span><i class="far fa-star fa-1x"></i></span>'
 		, '</div>'
 		, '<div class="lvTwoInput">'
-		, '<input type="text" id="text" class="form-control text">'
-		, '<input type="text" id="peri" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" name="lvTwoText" id="text" class="form-control text">'
+		, '<input type="text" name="lvTwoPeri" id="peri" class="form-control peri" placeholder="기간 설정">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -54,6 +59,7 @@
 		, '</td></tr>'
 	].join('');
 
+	// Level 3
 	row3 = [
 		'<tr id="Three"><td>'
 		, '<div class="input-group mb-2">'
@@ -61,8 +67,8 @@
 		, '<span><i class="far fa-star fa-1x"></i></span>'
 		, '</div>'
 		, '<div class="lvThreeInput">'
-		, '<input type="text" id="text" class="form-control text">'
-		, '<input type="text" id="peri" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" name="lvThreeText" id="text" class="form-control text">'
+		, '<input type="text" name="lvThreePeri" id="peri" class="form-control peri" placeholder="기간 설정">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -71,88 +77,88 @@
 		, '</td></tr>'
 	].join('');
 	
-	var lvOneCount = 0;
+	// Level 1 추가(onClick event)
 	$(document).on("click", ".addLvOne", function() {
-		var tmpOne = $(this).closest("tr");
-		var tOne = tmpOne.prev();
+		var topOne = $(this).closest("tr");
+		var prevOne = topOne.prev();
+		var lvOneCount = 0;
 		
 		while (true) {
-			if (tOne.attr("id") == "One") {
+			if (prevOne.attr("id") == "One") {
 				lvOneCount++;
-			} else if (tOne.attr("id") == undefined) {
+			} else if (prevOne.attr("id") == undefined) {
 				break;
 			} else {}
-			tOne = tOne.prev();
+			prevOne = prevOne.prev();
 		}
 		
 		if (lvOneCount < 2) {
 			$(".table").append(row1);
 			$(".table").append(addTwo);
 			$(".table").append(addOne);
-			tmpOne.remove();
+			topOne.remove();
 		} else {
 			$(".table").append(row1);
 			$(".table").append(addTwo);
-			tmpOne.remove();
+			topOne.remove();
 		}
-		lvOneCount = 0;
 	});
 	
-	var lvTwoCount = 0;
+	// Level 2 추가(onClick event)
 	$(document).on("click", ".addLvTwo", function() {
-		var tmpTwo = $(this).closest("tr");
-		var tTwo = tmpTwo.prev();
+		var topTwo = $(this).closest("tr");
+		var prevTwo = topTwo.prev();
+		var lvTwoCount = 0;
 		
-		while (tTwo.attr("id") !== "One") {
-			if (tTwo.attr("id") == "Two") {
+		while (prevTwo.attr("id") !== "One") {
+			if (prevTwo.attr("id") == "Two") {
 				lvTwoCount++;
 			}			
-			tTwo = tTwo.prev();
+			prevTwo = prevTwo.prev();
 		}
 		
 		if (lvTwoCount < 2) {
-			tmpTwo.after(addTwo);
-			tmpTwo.after(addThree);
-			tmpTwo.after(row2);
-			tmpTwo.remove();
+			topTwo.after(addTwo);
+			topTwo.after(addThree);
+			topTwo.after(row2);
+			topTwo.remove();
 		} else {
-			tmpTwo.after(addThree);
-			tmpTwo.after(row2);
-			tmpTwo.remove();
+			topTwo.after(addThree);
+			topTwo.after(row2);
+			topTwo.remove();
 		}
-		lvTwoCount = 0;
 	});
 	
-	var lvThreeCount = 0;
+	// Level 3 추가(onClick event)
 	$(document).on("click", ".addLvThree", function() {
-		var tmpThree = $(this).closest("tr");
-		var tThree = tmpThree.prev();
+		var topThree = $(this).closest("tr");
+		var prevThree = topThree.prev();
+		var lvThreeCount = 0;
 		
-		while (tThree.attr("id") !== "Two") {
+		while (prevThree.attr("id") !== "Two") {
 			lvThreeCount++;
-			tThree = tThree.prev();
+			prevThree = prevThree.prev();
 		}
 		
 		if (lvThreeCount < 2) {
-			tmpThree.after(addThree);
-			tmpThree.after(row3);
-			tmpThree.remove();
+			topThree.after(addThree);
+			topThree.after(row3);
+			topThree.remove();
 		} else {
-			tmpThree.after(row3);
-			tmpThree.remove();
+			topThree.after(row3);
+			topThree.remove();
 		}
-		lvThreeCount = 0;
 	});
 	
-	var countDel = 0;
+	// 행 삭제(onClick event)
 	$(document).on("click", ".delRow", function() {
 		var saveLv = $(this).closest("tr");
 		var countLv = saveLv;
+		var countDel = 0;
 		
 		var checkDel = confirm("해당 목표를 삭제하시겠습니까?\n(하위 행들도 삭제됩니다)")
 		
 		if (checkDel && saveLv.attr("id") == "Three") {
-			
 			while (countLv.attr("id") !== "Two") {
 				countLv = countLv.prev();
 			}
@@ -169,11 +175,7 @@
 				saveLv.remove();
 			} else 
 				saveLv.remove();
-			
-			countDel = 0;
-			
 		} else if (checkDel && saveLv.attr("id") == "Two") {
-			
 			while (countLv.attr("id") !== "One") {
 				countLv = countLv.prev();
 			}
@@ -204,11 +206,7 @@
 			} else {
 				saveLv.remove();
 			}
-			
-			countDel = 0;
-			
 		} else if (checkDel && saveLv.attr("id") == "One") {
-			var nextLvOne = saveLv.next();
 			var countOne; checkLast = 0;
 			
 			while (countLv.attr("id") !== undefined) {
@@ -248,15 +246,10 @@
 			} else {
 				saveLv.remove();
 			}
-			
-			console.log(countOne.attr("class"));
-			console.log(countDel);
-			
-			countDel = 0;
 		}
-		
 	});
 	
+	// 달력(기간 설정)
 	$(document).on("mouseup", ".peri", function() {		
 		$(this).daterangepicker({
 			"opens": "left"
@@ -265,6 +258,7 @@
 		});
 	});
 	
+	// input 테두리 색 변경(focusOut event)
 	$(document).on("focusout", "input", function() {
 		var saveInput = $(this);
 		
@@ -277,4 +271,22 @@
 		}
 	});
 	
+	// DB로 보낼 값 정리
+	var titleValue = {
+		Name = '',
+		Start_Dt = '',
+		End_Dt = ''
+	};
+	
+	var lvOneValue = {
+		
+	};
+	
+	var lvTwoValue = {
+			
+	};
+	
+	var lvThreeValue = {
+			
+	};
 })();

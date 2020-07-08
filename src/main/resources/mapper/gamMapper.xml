@@ -27,10 +27,8 @@
  			#{gam_end_dt}, #{gam_create_user_seq}, #{gam_create_dt}, #{gam_update_user_seq}, #{gam_update_dt}, #{gam_copy_cnt})
  	</insert>
  	
- 	
- 	
  	<insert id ="regList" parameterType = "com.gam.dev.gamVO.ListVO">
  		insert into gam_list ()
-			VALUES (USER_SEQ.NextVal, #{name}, #{gend}, #{id}, #{pwd}, #{email}, #{tel}, #{addr}, #{birth})
+			VALUES ()
  	</insert>
 </mapper>

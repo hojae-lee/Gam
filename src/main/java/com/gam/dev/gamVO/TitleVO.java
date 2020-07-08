@@ -7,7 +7,7 @@ public class TitleVO {
 	private int file_seq;
 	private String gam_type;
 	private String gam_title_nm;
-	private String gam_public_ym;
+	private String gam_public_yn;
 	private String gam_start_dt;
 	private String gam_end_dt;
 	private int gam_create_user_seq;
@@ -19,7 +19,7 @@ public class TitleVO {
 	public TitleVO() {}
 
 	public TitleVO(int gam_seq, int category_seq, int file_seq, String gam_type, String gam_title_nm,
-			String gam_public_ym, String gam_start_dt, String gam_end_dt, int gam_create_user_seq, String gam_create_dt,
+			String gam_public_yn, String gam_start_dt, String gam_end_dt, int gam_create_user_seq, String gam_create_dt,
 			int gam_update_user_seq, String gam_update_dt, int gam_copy_cnt) {
 		super();
 		this.gam_seq = gam_seq;
@@ -27,7 +27,7 @@ public class TitleVO {
 		this.file_seq = file_seq;
 		this.gam_type = gam_type;
 		this.gam_title_nm = gam_title_nm;
-		this.gam_public_ym = gam_public_ym;
+		this.gam_public_yn = gam_public_yn;
 		this.gam_start_dt = gam_start_dt;
 		this.gam_end_dt = gam_end_dt;
 		this.gam_create_user_seq = gam_create_user_seq;
@@ -77,12 +77,12 @@ public class TitleVO {
 		this.gam_title_nm = gam_title_nm;
 	}
 
-	public String getGam_public_ym() {
-		return gam_public_ym;
+	public String getgam_public_yn() {
+		return gam_public_yn;
 	}
 
-	public void setGam_public_ym(String gam_public_ym) {
-		this.gam_public_ym = gam_public_ym;
+	public void setgam_public_yn(String gam_public_yn) {
+		this.gam_public_yn = gam_public_yn;
 	}
 
 	public String getGam_start_dt() {

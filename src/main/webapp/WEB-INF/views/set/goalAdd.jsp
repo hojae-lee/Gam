@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/joinPage/css/setCSS/set.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/joinPage/css/setCSS/daterangepicker.css">
     
-	<div id="content">
+	<div>
 		<form name="regGoal" method="post" action="regGoal">
 			<table class="table">
 			

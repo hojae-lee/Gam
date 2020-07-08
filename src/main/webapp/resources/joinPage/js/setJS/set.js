@@ -272,12 +272,48 @@
 	});
 	
 	// DB로 보낼 값 정리
-	// name: titleText, titlePeri
-	var titleValue = {
-		Name: document.getElementsByName('titleText')[0].value,
-		Start_Dt: '',
-		End_Dt: ''
-	};
+	
+	function nowDate() {
+		var date = new Date();
+		
+		var year = date.getFullYear();
+		var month = date.getMonth() + 1;
+		var day = date.getDate();
+		
+		if(month < 10) month = "0" + month;
+	    if(day < 10) day = "0" + day;
+		
+		return month + "/" + day + "/" + year;
+	}
+	
+	// 기간의 시작일, 종료일 구분 후 status(예정/1, 진행/2, 종료/3) 구분
+	function arrDate(fullDate) {
+		var nowDt = nowDate();
+		var startDt = fullDate.val().slice(0, 10);
+		var endDt = fullDate.val().slice(13, 23);
+		
+		var nowArr = nowDt.split('/');
+		var startArr = startDate.split('/');
+		var endArr = startDate.split('/');
+		
+		var startCompare = new Date(parseInt(startArr[1])-1, startArr[2], startArr[0]);
+		var endCompare = new Date(parseInt(endArr[1])-1, endArr[2], endArr[0]);
+		var nowCompare = new Date(parseInt(nowArr[1])-1, nowArr[2], nowArr[0]);
+		
+		if (nowCompare < startCompare) {
+			return 1; // 예정
+		} else if (nowCompare > endCompare) {
+			return 3; // 종료
+		} else {
+			return 2; // 진행
+		}
+	}
+	
+	// title
+	var titleText = $("input[name=titleText]").val();
+	var titleStartDt = $("input[name=titlePeri]").val().slice(0, 10);
+	var titleEndDt = $("input[name=titlePeri]").val().slice(13, 23);
+	
 	// name: lvOneText, lvOnePeri
 	var lvOneValue = {
 		
@@ -290,4 +326,4 @@
 	var lvThreeValue = {
 			
 	};
-});
+})();

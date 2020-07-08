@@ -272,21 +272,22 @@
 	});
 	
 	// DB로 보낼 값 정리
+	// name: titleText, titlePeri
 	var titleValue = {
-		Name = '',
-		Start_Dt = '',
-		End_Dt = ''
+		Name: document.getElementsByName('titleText')[0].value,
+		Start_Dt: '',
+		End_Dt: ''
 	};
-	
+	// name: lvOneText, lvOnePeri
 	var lvOneValue = {
 		
 	};
-	
+	// name: lvTwoText, lvTwoPeri	
 	var lvTwoValue = {
 			
 	};
-	
+	// name: lvTwoText, lvTwoPeri	
 	var lvThreeValue = {
 			
 	};
-})();
+});

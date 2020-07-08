@@ -11,8 +11,8 @@
 				<thead>
 					<th>
 						<div class="input-group mb-2">
-							<input type="text" class="form-control" style="width:70%" placeholder="목표 제목을 입력해주세요">
-							<input type="text" class="form-control peri" style="width:30%; font-size:20px" placeholder="전체 기간 설정">
+							<input type="text" name="titleText" class="form-control" style="width:70%" placeholder="목표 제목을 입력해주세요">
+							<input type="text" name="titlePeri" class="form-control peri" style="width:30%; font-size:20px" placeholder="전체 기간 설정">
 						</div>
 					</th>
 				</thead>

@@ -32,7 +32,8 @@
 		, '</div>'
 		, '<div class="lvOneInput">'
 		, '<input type="text" name="lvOneText" id="text" class="form-control text">'
-		, '<input type="text" name="lvOnePeri" id="peri" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" name="lvOneStartDt" id="peri" class="form-control peri" placeholder="시작일">'
+		, '<input type="text" name="lvOneEndDt" id="peri" class="form-control peri" placeholder="종료일">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -50,7 +51,8 @@
 		, '</div>'
 		, '<div class="lvTwoInput">'
 		, '<input type="text" name="lvTwoText" id="text" class="form-control text">'
-		, '<input type="text" name="lvTwoPeri" id="peri" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" name="lvTwoStartDt" id="peri" class="form-control peri" placeholder="시작일">'
+		, '<input type="text" name="lvTwoEndDt" id="peri" class="form-control peri" placeholder="종료일">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -68,7 +70,8 @@
 		, '</div>'
 		, '<div class="lvThreeInput">'
 		, '<input type="text" name="lvThreeText" id="text" class="form-control text">'
-		, '<input type="text" name="lvThreePeri" id="peri" class="form-control peri" placeholder="기간 설정">'
+		, '<input type="text" name="lvThreeStartDt" id="peri" class="form-control peri" placeholder="시작일">'
+		, '<input type="text" name="lvThreeEndDt" id="peri" class="form-control peri" placeholder="종료일">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -252,9 +255,8 @@
 	// 달력(기간 설정)
 	$(document).on("mouseup", ".peri", function() {		
 		$(this).daterangepicker({
+			singleDatePicker: true,
 			"opens": "left"
-		}, function(start, end, label) {
-			console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
 		});
 	});
 	
@@ -272,7 +274,6 @@
 	});
 	
 	// DB로 보낼 값 정리
-	
 	function nowDate() {
 		var date = new Date();
 		
@@ -293,8 +294,8 @@
 		var endDt = fullDate.val().slice(13, 23);
 		
 		var nowArr = nowDt.split('/');
-		var startArr = startDate.split('/');
-		var endArr = startDate.split('/');
+		var startArr = startDt.split('/');
+		var endArr = endDt.split('/');
 		
 		var startCompare = new Date(parseInt(startArr[1])-1, startArr[2], startArr[0]);
 		var endCompare = new Date(parseInt(endArr[1])-1, endArr[2], endArr[0]);
@@ -314,16 +315,67 @@
 	var titleStartDt = $("input[name=titlePeri]").val().slice(0, 10);
 	var titleEndDt = $("input[name=titlePeri]").val().slice(13, 23);
 	
-	// name: lvOneText, lvOnePeri
-	var lvOneValue = {
+	// list
+	// 
+	function findParent(target) {
+		var fp = target.closest("tr");
+		var countfp = 0;
 		
-	};
-	// name: lvTwoText, lvTwoPeri	
-	var lvTwoValue = {
+		if (fp.attr("name") == "lvTwoText") {
+			while (fp.attr("id") !== undefined) {
+				fp = fp.prev();
+				if (fp.attr("id") == "One") {
+					countfp++;
+				}
+			}
+		}
+		
+		if (fp.attr("name") == "lvThreeText") {
 			
-	};
-	// name: lvTwoText, lvTwoPeri	
-	var lvThreeValue = {
-			
-	};
+		}
+		return countfp;
+	}
+	
+	var listText = new Array();
+	var listStartDt = new Array();
+	var listEndDt = new Array();
+	
+	var lvOneText = $("input[name=lvOneText]").val();
+	var lvOneStartDt = $("input[name=lvOneStartDt]").val();
+	var lvOneEndDt = $("input[name=lvOneEndDt]").val();
+	
+	for (var i = 0; i < lvOneText.length; i++) {
+		oneText[i] = lvOneText[i];
+		oneStartDt[i] = lvOneStartDt[i];
+		oneEndDt[i] = lvOneEndDt[i];		
+	}
+	
+	
+	var lvTwoText = $("input[name=lvTwoText]");
+	var lvTwoPeri = $("input[name=lvTwoPeri]");
+	
+	for (var i = 0; i < lvTwoText.length; i++) {
+		var savefp = findParent(lvTwoText[i]);
+		if (favefp == 1) {
+			listText[0][i] = lvTwoText[i].val();
+			listStartDt[0][i] = lvTwoPeri[i].val().slice(0, 10);
+			listEndDt[0][i] = lvTwoPeri[i].val().slice(13, 23);
+		} else if (savefp == 2) {
+			listText[1][i] = lvTwoText[i].val();
+			listStartDt[1][i] = lvTwoPeri[i].val().slice(0, 10);
+			listEndDt[1][i] = lvTwoPeri[i].val().slice(13, 23);
+		} else {
+			listText[2][i] = lvTwoText[i].val();
+			listStartDt[2][i] = lvTwoPeri[i].val().slice(0, 10);
+			listEndDt[2][i] = lvTwoPeri[i].val().slice(13, 23);
+		}
+	}
+	
+	var lvThreeText = $("input[name=lvThreeText]");
+	var lvThreePeri = $("input[name=lvThreePeri]");
+	
+	
+	
+	
+	
 })();

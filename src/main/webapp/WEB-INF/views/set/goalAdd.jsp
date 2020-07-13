@@ -5,14 +5,15 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/joinPage/css/setCSS/daterangepicker.css">
     
 	<div>
-		<form name="regGoal" method="post" action="regGoal">
+		<form id="regGoal" method="post" action="regGoal">
 			<table class="table">
 			
 				<thead>
 					<th>
 						<div class="input-group mb-2">
 							<input type="text" name="titleText" class="form-control" style="width:70%" placeholder="목표 제목을 입력해주세요">
-							<input type="text" name="titlePeri" class="form-control peri" style="width:30%; font-size:20px" placeholder="전체 기간 설정">
+							<input type="text" name="titleStartDt" class="form-control peri" style="width:15%; font-size:20px" placeholder="목표 시작일">
+							<input type="text" name="titleEndDt" class="form-control peri" style="width:15%; font-size:20px" placeholder="목표 종료일">
 						</div>
 					</th>
 				</thead>

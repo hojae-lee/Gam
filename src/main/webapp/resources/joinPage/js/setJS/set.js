@@ -312,16 +312,16 @@
 	
 	// title
 	var titleText = $("input[name=titleText]").val();
-	var titleStartDt = $("input[name=titlePeri]").val().slice(0, 10);
-	var titleEndDt = $("input[name=titlePeri]").val().slice(13, 23);
+	var titleStartDt = $("input[name=titleStartDt]").val();
+	var titleEndDt = $("input[name=titleEndDt]").val();
 	
 	// list
 	// 
-	function findParent(target) {
+	/*function findParent(target) {
 		var fp = target.closest("tr");
 		var countfp = 0;
 		
-		if (fp.attr("name") == "lvTwoText") {
+		if (target.attr("name") == "lvTwoText") {
 			while (fp.attr("id") !== undefined) {
 				fp = fp.prev();
 				if (fp.attr("id") == "One") {
@@ -330,7 +330,7 @@
 			}
 		}
 		
-		if (fp.attr("name") == "lvThreeText") {
+		if (target.attr("name") == "lvThreeText") {
 			
 		}
 		return countfp;
@@ -373,7 +373,7 @@
 	
 	var lvThreeText = $("input[name=lvThreeText]");
 	var lvThreePeri = $("input[name=lvThreePeri]");
-	
+	*/
 	
 	
 	

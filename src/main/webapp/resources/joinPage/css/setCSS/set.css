@@ -17,11 +17,6 @@ tfoot div {
 	border-left: none;
 	border-top: none;
 	border-bottom: none;
-	
-	/* border-collapse: separate;
-	border-spacing: 0 10px; */
-	
-	padding: 0px;
 }
 
 .table #one td, .table #addOne td {
@@ -60,7 +55,7 @@ tfoot div {
 	width: 76%;
 }
 
-.peri {
+#start, #end {
 	text-align: center;
 	width: 12%;
 }

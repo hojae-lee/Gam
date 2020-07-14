@@ -32,8 +32,8 @@
 		, '</div>'
 		, '<div class="lvOneInput">'
 		, '<input type="text" name="lvOneText" id="text" class="form-control text">'
-		, '<input type="text" name="lvOneStartDt" id="peri" class="form-control peri" placeholder="시작일">'
-		, '<input type="text" name="lvOneEndDt" id="peri" class="form-control peri" placeholder="종료일">'
+		, '<input type="text" name="lvOneStartDt" id="start" class="form-control peri" placeholder="시작일">'
+		, '<input type="text" name="lvOneEndDt" id="end" class="form-control peri" placeholder="종료일">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -51,8 +51,8 @@
 		, '</div>'
 		, '<div class="lvTwoInput">'
 		, '<input type="text" name="lvTwoText" id="text" class="form-control text">'
-		, '<input type="text" name="lvTwoStartDt" id="peri" class="form-control peri" placeholder="시작일">'
-		, '<input type="text" name="lvTwoEndDt" id="peri" class="form-control peri" placeholder="종료일">'
+		, '<input type="text" name="lvTwoStartDt" id="start" class="form-control peri" placeholder="시작일">'
+		, '<input type="text" name="lvTwoEndDt" id="end" class="form-control peri" placeholder="종료일">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -70,8 +70,8 @@
 		, '</div>'
 		, '<div class="lvThreeInput">'
 		, '<input type="text" name="lvThreeText" id="text" class="form-control text">'
-		, '<input type="text" name="lvThreeStartDt" id="peri" class="form-control peri" placeholder="시작일">'
-		, '<input type="text" name="lvThreeEndDt" id="peri" class="form-control peri" placeholder="종료일">'
+		, '<input type="text" name="lvThreeStartDt" id="start" class="form-control peri" placeholder="시작일">'
+		, '<input type="text" name="lvThreeEndDt" id="end" class="form-control peri" placeholder="종료일">'
 		, '</div>'
 		, '<div class="input-group-append">'
 		, '<span><i class="far fa-trash-alt fa-1x delRow"></i></span>'
@@ -253,7 +253,39 @@
 	});
 	
 	// 달력(기간 설정)
-	$(document).on("mouseup", ".peri", function() {		
+	function compDate(a, b) {
+		// var nowDt = nowDate();
+		
+		var aDt = a;
+		var bDt = b;
+		
+		// var nowArr = nowDt.split('/');
+		
+		var aArr = aDt.split('/');
+		var bArr = bDt.split('/');
+		
+		// var nowCompare = new Date(parseInt(nowArr[1])-1, nowArr[2], nowArr[0]);
+		
+		var aCompare = new Date(parseInt(aArr[1])-1, aArr[2], aArr[0]);
+		var bCompare = new Date(parseInt(bArr[1])-1, bArr[2], bArr[0]);
+		
+		if (aCompare < bCompare) {
+			return 1;
+		} else if (aCompare == bCompare) {
+			return 2;
+		} else {
+			return 3;
+		}
+	}
+	
+	$(document).on("mouseup", "#start", function() {
+		$(this).daterangepicker({
+			singleDatePicker: true,
+			"opens": "left"
+		});
+	});
+	
+	$(document).on("mouseup", "#end", function() {
 		$(this).daterangepicker({
 			singleDatePicker: true,
 			"opens": "left"
@@ -287,36 +319,12 @@
 		return month + "/" + day + "/" + year;
 	}
 	
-	// 기간의 시작일, 종료일 구분 후 status(예정/1, 진행/2, 종료/3) 구분
-	function arrDate(fullDate) {
-		var nowDt = nowDate();
-		var startDt = fullDate.val().slice(0, 10);
-		var endDt = fullDate.val().slice(13, 23);
-		
-		var nowArr = nowDt.split('/');
-		var startArr = startDt.split('/');
-		var endArr = endDt.split('/');
-		
-		var startCompare = new Date(parseInt(startArr[1])-1, startArr[2], startArr[0]);
-		var endCompare = new Date(parseInt(endArr[1])-1, endArr[2], endArr[0]);
-		var nowCompare = new Date(parseInt(nowArr[1])-1, nowArr[2], nowArr[0]);
-		
-		if (nowCompare < startCompare) {
-			return 1; // 예정
-		} else if (nowCompare > endCompare) {
-			return 3; // 종료
-		} else {
-			return 2; // 진행
-		}
-	}
-	
 	// title
 	var titleText = $("input[name=titleText]").val();
 	var titleStartDt = $("input[name=titleStartDt]").val();
 	var titleEndDt = $("input[name=titleEndDt]").val();
 	
 	// list
-	// 
 	/*function findParent(target) {
 		var fp = target.closest("tr");
 		var countfp = 0;
@@ -374,8 +382,4 @@
 	var lvThreeText = $("input[name=lvThreeText]");
 	var lvThreePeri = $("input[name=lvThreePeri]");
 	*/
-	
-	
-	
-	
 })();

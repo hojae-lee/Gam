@@ -15,12 +15,13 @@ public class TitleVO {
 	private int gam_update_user_seq;
 	private String gam_update_dt;
 	private int gam_copy_cnt;
+	private String user_nicknm;
 	
 	public TitleVO() {}
 
 	public TitleVO(int gam_seq, int category_seq, int file_seq, String gam_type, String gam_title_nm,
-			String gam_public_yn, String gam_start_dt, String gam_end_dt, int gam_create_user_seq, String gam_create_dt,
-			int gam_update_user_seq, String gam_update_dt, int gam_copy_cnt) {
+			String gam_public_ym, String gam_start_dt, String gam_end_dt, int gam_create_user_seq, String gam_create_dt,
+			int gam_update_user_seq, String gam_update_dt, int gam_copy_cnt, String user_nicknm) {
 		super();
 		this.gam_seq = gam_seq;
 		this.category_seq = category_seq;
@@ -35,6 +36,7 @@ public class TitleVO {
 		this.gam_update_user_seq = gam_update_user_seq;
 		this.gam_update_dt = gam_update_dt;
 		this.gam_copy_cnt = gam_copy_cnt;
+		this.user_nicknm = user_nicknm;
 	}
 
 	public int getGam_seq() {
@@ -139,6 +141,14 @@ public class TitleVO {
 
 	public void setGam_copy_cnt(int gam_copy_cnt) {
 		this.gam_copy_cnt = gam_copy_cnt;
+	}
+
+	public String getUser_nicknm() {
+		return user_nicknm;
+	}
+
+	public void setUser_nicknm(String user_nicknm) {
+		this.user_nicknm = user_nicknm;
 	}
 	
 }

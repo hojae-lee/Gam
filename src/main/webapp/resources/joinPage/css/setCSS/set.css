@@ -1,0 +1,61 @@
+span {
+	display: table-cell;
+	padding: 10px 10px 0px 10px;
+}
+
+/* input {
+	box-shadow: 0 0 5px rgba(255, 90, 90, 1);
+    border: 1px solid rgba(255, 90, 90, 1);
+} */
+
+tfoot div {
+	text-align: center;
+}
+
+.table th, .table td {
+ 	border-right: none;
+	border-left: none;
+	border-top: none;
+	border-bottom: none;
+}
+
+.table #one td, .table #addOne td {
+	padding-top: 30px;
+}
+
+#Two > td, #addTwo > td {
+	padding-left: 50px;
+}
+
+#Three > td, #addThree > td {
+	padding-left: 100px;
+}
+
+#addTwo > td, #addThree > td {
+	padding-bottom: 15px;
+}
+
+.form-control {
+	display: inline;
+}
+
+.lvOneInput {
+	flex: 0.7 auto;
+}
+
+.lvTwoInput {
+	flex: 0.8 auto;
+}
+
+.lvThreeInput {
+	flex: 0.9 auto;
+}
+
+.text {
+	width: 76%;
+}
+
+#start, #end {
+	text-align: center;
+	width: 12%;
+}

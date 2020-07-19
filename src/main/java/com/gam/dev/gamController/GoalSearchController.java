@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+
+import com.gam.dev.gamVO.ListVO;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gam.dev.gamVO.TitleVO;
@@ -22,6 +25,13 @@ public class GoalSearchController {
 		@Autowired
 		private SqlSession sqlS;
 		
+
+		// 목표 검색
+		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
+		public String goalSearch() {
+			System.out.println("");
+			return "search/goalSearch";
+
 		// 목표 검색 페이지 이동
 		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
 		public ModelAndView goalSearch() {
@@ -86,6 +96,24 @@ public class GoalSearchController {
 			return mv;
 		}
 		// 스크롤 서버 페이징
+		
+		// search => auto complete
+		@RequestMapping("/autocomplete/search.do")
+		@ResponseBody
+		public ArrayList<ListVO> autoSearchList(HttpServletRequest req){
+			String searchValue = req.getParameter("searchValue");
+			String searchTitle = req.getParameter("searchTitle");
+			ArrayList<ListVO> gam_list = new ArrayList<ListVO>();
+			switch (searchTitle) {
+				case "list_nm": 
+					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelect(searchValue);
+					break;
+				case "user_nicknm":
+					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelectName(searchValue);
+					break;
+			}
+			return gam_list;
+		}
 		
 		// 목표 디테일
 		public void goalDetail() {

@@ -15,16 +15,16 @@ public class HomeController {
 	private SqlSession sqlS;
 	
 	/*
-	 �̸�: ����ȣ, �ѵ���
-	 ��¥: 20200524 
-	 ���: ������ ���� ����
+	 占싱몌옙: 占쏙옙占쏙옙호, 占싼듸옙占쏙옙
+	 占쏙옙짜: 20200524 
+	 占쏙옙占�: 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView();
 		
 		/*
-		 getMapper(�������̽�) ��İ� selectOne(���� ��) ���
+		 getMapper(占쏙옙占쏙옙占쏙옙占싱쏙옙) 占쏙옙캅占� selectOne(占쏙옙占쏙옙 占쏙옙) 占쏙옙占�
 		 */
 //		String result = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).testSelect();
 //		String result = sqlS.selectOne("com.gam.dev.gamImpl.GamImpl.testSelect");
@@ -34,10 +34,10 @@ public class HomeController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/mstest", method = RequestMethod.GET)
+	@RequestMapping(value = "/goaladd", method = RequestMethod.GET)
 	public ModelAndView mstest() {
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("main/mstest");
+		mv.setViewName("set/goalAdd");
 		return mv;
 	}
 	

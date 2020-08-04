@@ -26,43 +26,43 @@ public class GoalSearchController {
 		private SqlSession sqlS;
 		
 
-		// 목표 검색
-		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
-		public String goalSearch() {
-			System.out.println("");
-			return "search/goalSearch";
-
-		// 목표 검색 페이지 이동
-		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
-		public ModelAndView goalSearch() {
-			ModelAndView mv = new ModelAndView();
-			mv.setViewName("search/goalSearch");
-			return mv;
-		}
+//		// 목표 검색
+//		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
+//		public String goalSearch() {
+//			System.out.println("");
+//			return "search/goalSearch";
+//
+//		// 목표 검색 페이지 이동
+//		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
+//		public ModelAndView goalSearch() {
+//			ModelAndView mv = new ModelAndView();
+//			mv.setViewName("search/goalSearch");
+//			return mv;
+//		}
 		
-		// search => auto complete
-		@RequestMapping("/autocomplete/search.do")
-		@ResponseBody
-		public ArrayList autoSearchList(HttpServletRequest req){
-			String searchValue = req.getParameter("searchValue");
-			String searchTitle = req.getParameter("searchTitle");
-			ArrayList gam_list = null;
-			switch (searchTitle) {
-				case "gam_title_nm": 
-					gam_list = new ArrayList<TitleVO>();
-					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelect(searchValue);
-					break;
-				case "user_nicknm":
-					gam_list = new ArrayList<UserVO>();
-					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelectName(searchValue);
-					break;
-				case "gam_type":
-					gam_list = new ArrayList<UserVO>();
-					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelectType(searchValue);
-					break;
-			}
-			return gam_list;
-		}
+//		// search => auto complete
+//		@RequestMapping("/autocomplete/search.do")
+//		@ResponseBody
+//		public ArrayList autoSearchList(HttpServletRequest req){
+//			String searchValue = req.getParameter("searchValue");
+//			String searchTitle = req.getParameter("searchTitle");
+//			ArrayList gam_list = null;
+//			switch (searchTitle) {
+//				case "gam_title_nm": 
+//					gam_list = new ArrayList<TitleVO>();
+//					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelect(searchValue);
+//					break;
+//				case "user_nicknm":
+//					gam_list = new ArrayList<UserVO>();
+//					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelectName(searchValue);
+//					break;
+//				case "gam_type":
+//					gam_list = new ArrayList<UserVO>();
+//					gam_list = sqlS.getMapper(com.gam.dev.gamImpl.GamImpl.class).autoSelectType(searchValue);
+//					break;
+//			}
+//			return gam_list;
+//		}
 		
 		// 검색 후 컨트롤러
 		@RequestMapping("/search/goalSearchResult.do")

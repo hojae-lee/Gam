@@ -10,13 +10,13 @@
 			select count(*) from employees
 		</select>
   	-->
-  	<select id = "autoSelect" resultType = "com.gam.dev.gamVO.ListVO">
+<!--   	<select id = "autoSelect" resultType = "com.gam.dev.gamVO.ListVO">
   		select list_nm from gam_list where list_nm like '%'||#{value}||'%'
   	</select>
   	
   	<select id = "autoSelectName" resultType = "com.gam.dev.gamVO.UserVO">
   		select user_nicknm from gam_user where user_nicknm like '%'||#{value}||'%'
-  	</select>
+  	</select> -->
   	
   	
   	<!--최-->

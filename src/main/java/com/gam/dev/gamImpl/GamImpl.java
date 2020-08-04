@@ -26,10 +26,12 @@ public interface GamImpl {
 	*/
 	public ArrayList<TitleVO> regTitle(TitleVO vo);
 	public ArrayList<ListVO> regList(TitleVO vo);
-	 추가 : autoSelectType 타입 일 경우도 검색 가능하도록. 
-	 */
-	public ArrayList<TitleVO> autoSelect(String searchValue);
-	public ArrayList<UserVO> autoSelectName(String searchValue);
+	
+	/*
+	추가 : autoSelectType 타입 일 경우도 검색 가능하도록. 
+	*/
+//	public ArrayList<TitleVO> autoSelect(String searchValue);
+//	public ArrayList<UserVO> autoSelectName(String searchValue);
 	public ArrayList<TitleVO> autoSelectType(String searchValue);
 	public ArrayList<TitleVO> searchResultData(String searchContents, String searchTitle);
 	public ArrayList<TitleVO> relationTitleSearchList(String searchContents);

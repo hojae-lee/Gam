@@ -323,9 +323,70 @@
 	var titleText = $("input[name=titleText]").val();
 	var titleStartDt = $("input[name=titleStartDt]").val();
 	var titleEndDt = $("input[name=titleEndDt]").val();
+	var checkTitle = 1;
+	
+	function sub() {
+		if (!titleText || !titleStartDt || !titleEndDt) {
+			checkTitle = 0;
+		}
+		
+		
+	}
+	
+	function set() {
+		var lv1, i = 0;
+		while(true) {
+			if($("input[name=lvOneText]").eq(i).val() == undefined) {
+				break;
+			}
+			lv1[i] = $("input[name=lvOneText]").eq(i).val();
+			i++;
+		}
+	}
+	var defaultData = [
+		{
+			level: 1,
+			text: $("input[name=lvOneText]").eq(0).val(),
+			start: $("input[name=lvOneStartDt]").eq(0).val(),
+			end: $("input[name=lvOneEndDt]").eq(0).val(),
+			nodes: [
+            {
+    			level: 2,
+    			text: '',
+    			start: '',
+    			end: '',
+    			nodes: [
+                {
+        			level: 3,
+        			text: '',
+        			start: '',
+        			end: ''
+                },
+                {
+        			level: 3,
+        			text: '',
+        			start: '',
+        			end: ''
+                },
+                {
+        			level: 3,
+        			text: '',
+        			start: '',
+        			end: ''
+                }
+              ]
+            },
+            {
+              text: 'Child 2',
+              href: '#child2',
+              tags: ['0']
+            }
+          ]
+        }
+      ];
 	
 	// list
-	/*function findParent(target) {
+	function findParent(target) {
 		var fp = target.closest("tr");
 		var countfp = 0;
 		
@@ -353,33 +414,34 @@
 	var lvOneEndDt = $("input[name=lvOneEndDt]").val();
 	
 	for (var i = 0; i < lvOneText.length; i++) {
-		oneText[i] = lvOneText[i];
-		oneStartDt[i] = lvOneStartDt[i];
-		oneEndDt[i] = lvOneEndDt[i];		
+		listText[i] = lvOneText[i];
+		listStartDt[i] = lvOneStartDt[i];
+		listEndDt[i] = lvOneEndDt[i];		
 	}
 	
 	
 	var lvTwoText = $("input[name=lvTwoText]");
-	var lvTwoPeri = $("input[name=lvTwoPeri]");
+	var lvTwoStartDt = $("input[name=lvTwoStartDt]");
+	var lvTwoEndDt = $("input[name=lvTwoEndDt]");
 	
 	for (var i = 0; i < lvTwoText.length; i++) {
 		var savefp = findParent(lvTwoText[i]);
-		if (favefp == 1) {
+		if (savefp == 1) {
 			listText[0][i] = lvTwoText[i].val();
-			listStartDt[0][i] = lvTwoPeri[i].val().slice(0, 10);
-			listEndDt[0][i] = lvTwoPeri[i].val().slice(13, 23);
+			listStartDt[0][i] = lvTwoStartDt[i].val();
+			listEndDt[0][i] = lvTwoEndDt[i].val();
 		} else if (savefp == 2) {
 			listText[1][i] = lvTwoText[i].val();
-			listStartDt[1][i] = lvTwoPeri[i].val().slice(0, 10);
-			listEndDt[1][i] = lvTwoPeri[i].val().slice(13, 23);
+			listStartDt[1][i] = lvTwoStartDt[i].val();
+			listEndDt[1][i] = lvTwoEndDt[i].val();
 		} else {
 			listText[2][i] = lvTwoText[i].val();
-			listStartDt[2][i] = lvTwoPeri[i].val().slice(0, 10);
-			listEndDt[2][i] = lvTwoPeri[i].val().slice(13, 23);
+			listStartDt[2][i] = lvTwoStartDt[i].val();
+			listEndDt[2][i] = lvTwoEndDt[i].val();
 		}
 	}
 	
 	var lvThreeText = $("input[name=lvThreeText]");
 	var lvThreePeri = $("input[name=lvThreePeri]");
-	*/
+
 })();

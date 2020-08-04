@@ -11,7 +11,7 @@
 				<thead>
 					<tr>
 						<td>
-							<select class="custom-select" id="category_seq">
+							<select class="custom-select" name="category_seq" id="category_seq">
 								<option value="empty">카테고리를 설정해주세요</option>
 								<option value="1">학습</option>
 								<option value="2">건강/운동</option>
@@ -43,7 +43,7 @@
 					<tr>
 						<td>
 							<div>
-								<input type="submit" class="btn btn-success" value="저장">
+								<input type="button" class="btn btn-success" value="저장">
 								<input type="reset" class="btn btn-danger" value="초기화">
 							</div>
 						</td>

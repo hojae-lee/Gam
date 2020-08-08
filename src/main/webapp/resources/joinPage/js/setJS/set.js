@@ -324,6 +324,27 @@
 	var titleStartDt = $("input[name=titleStartDt]").val();
 	var titleEndDt = $("input[name=titleEndDt]").val();
 	
+	var gr1 = {
+			lv1: ["내용"|"시작"|"끝"],
+			lv2: ["내용"|"시작"|"끝", "내용"|"시작"|"끝", "내용"|"시작"|"끝"],
+			lv3: []
+	};
+	
+	switch(tmp) {
+		case lv1: 
+			// 새 그룹 생성
+			break;
+		case lv2:
+			
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	// list
 	/*function findParent(target) {
 		var fp = target.closest("tr");

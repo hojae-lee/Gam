@@ -1,12 +1,18 @@
 package com.gam.dev.gamController;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.gam.dev.gamVO.ListVO;
-import com.gam.dev.gamVO.TitleVO;
+import com.gam.dev.gamImpl.GamImpl;
 
 @Controller
 public class GoalManageController {
@@ -15,27 +21,31 @@ public class GoalManageController {
 		@Autowired
 		private SqlSession sqlS;
 		
+		private GamImpl gamImple;
+		
 		// 목표 조회(상세보기 조회지.)
-
+		@RequestMapping("/member/goalManage/list.do")
+		public ModelAndView memberGoalList(HttpServletRequest request, HttpServletResponse response) {
+			ModelAndView mv = new ModelAndView("goalManage/GoalManageList");
+			// 로그인된 회원의 회원 번호 더미 = 3
+			String user_seq = "3";
+			
+			ArrayList<Object> req_Start =  (ArrayList<Object>) sqlS.selectList("com.gam.dev.gamImpl.GamMemGoalManageImpl.memGoalManageStart", user_seq);
+			ArrayList<Object> req_End = (ArrayList<Object>) sqlS.selectList("com.gam.dev.gamImpl.GamMemGoalManageImpl.memGoalManageEnd", user_seq);
+			ArrayList<Object> req_Schedule = (ArrayList<Object>) sqlS.selectList("com.gam.dev.gamImpl.GamMemGoalManageImpl.memGoalManageSchedule", user_seq);
+			
+			// 진행중
+			mv.addObject("req_Start",req_Start);
+			// 완료
+			mv.addObject("req_End",req_End);
+			// 예정
+			mv.addObject("req_Schedule",req_Schedule);
+			
+			return mv;
+		}
+		
 		// 목표 추가, 수정, 삭제
 		public String goalManage() {
-		/*
-		 * String[] data1 = req.getParameterValues("data1"); String[] data2 =
-		 * req.getParameterValues("data2"); String[] data3 =
-		 * req.getParameterValues("data3");
-		 * 
-		 * for (lv1) { a = sql if (a == true) b = sql if (b == true) c = sql }
-		 */
-		
-			
-			
-			/*
-			 data 가 들어왔어.
-			 data에서 LV 1, 2 3 을 판별할 수 있지?
-		 	 db(lv1, d, a) => (lv2) => (lv3)
-			 	     => 성공
-			 	   
-			 */
 			//저장 버튼 하나로
 //			파라미터가 넘어와 근데 이 파라미터가 추가에 대한 인자 인지, 수정인지, 삭제인지
 //			판별을 한 뒤 DB에 넣고 그 다음 페이지를 이동시켜준다. 목표 상세페이지로
@@ -50,16 +60,6 @@ public class GoalManageController {
 			
 			return "";
 		}
-		
-	/*
-	 * @PostMapping("regGoal") public String regTitle(TitleVO vo) {
-	 * 
-	 * return ""; }
-	 * 
-	 * @PostMapping("regGoal") public String regList(ListVO vo) {
-	 * 
-	 * return ""; }
-	 */
 		
 		// 목표카피
 		public void goalCopy() {

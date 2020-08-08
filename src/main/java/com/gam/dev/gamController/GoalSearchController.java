@@ -25,13 +25,6 @@ public class GoalSearchController {
 		@Autowired
 		private SqlSession sqlS;
 		
-
-//		// 목표 검색
-//		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
-//		public String goalSearch() {
-//			System.out.println("");
-//			return "search/goalSearch";
-//
 //		// 목표 검색 페이지 이동
 //		@RequestMapping(value = "/search/goalSearch.do", method = RequestMethod.GET)
 //		public ModelAndView goalSearch() {

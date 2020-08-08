@@ -333,16 +333,18 @@
 		
 	}
 	
+	
 	function set() {
 		var lv1, i = 0;
 		while(true) {
-			if($("input[name=lvOneText]").eq(i).val() == undefined) {
+			if ($("input[name=lvOneText]").eq(i).val() == undefined) {
 				break;
 			}
 			lv1[i] = $("input[name=lvOneText]").eq(i).val();
 			i++;
 		}
 	}
+	
 	var defaultData = [
 		{
 			level: 1,
@@ -371,15 +373,13 @@
                 {
         			level: 3,
         			text: '',
-        			start: '',
+        			start: '', 
         			end: ''
                 }
               ]
             },
             {
-              text: 'Child 2',
-              href: '#child2',
-              tags: ['0']
+            	
             }
           ]
         }

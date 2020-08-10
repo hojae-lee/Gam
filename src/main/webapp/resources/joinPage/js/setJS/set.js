@@ -323,24 +323,84 @@
 	var titleText = $("input[name=titleText]").val();
 	var titleStartDt = $("input[name=titleStartDt]").val();
 	var titleEndDt = $("input[name=titleEndDt]").val();
+
+	/*
+	 lv1.push("내용|시작|끝");
+	 */
 	
-	var gr1 = {
-			lv1: ["내용"|"시작"|"끝"],
-			lv2: ["내용"|"시작"|"끝", "내용"|"시작"|"끝", "내용"|"시작"|"끝"],
-			lv3: []
-	};
+//	group["group"+cnt].lv1 = lv1 || [];
+//	group["group"+cnt].lv2 = lv2 || [];
+//	group["group"+cnt].lv3 = lv3 || [];
 	
-	switch(tmp) {
-		case lv1: 
-			// 새 그룹 생성
-			break;
-		case lv2:
+	var group = {};
+	var groupNum = 1;
+	
+	function regGoal(number) {
+		var lv1 = [], lv2 = [], lv3 = [];
+		var tmp = $("input[name=lvOneText]");
+		var firstInput = tmp.eq(groupNum - 1);
+		var nextTr = firstInput.closest("tr").next();
+		var nextInput = nextTr.find("input");
+		var twoCnt = 0;
+		
+		if (!group["group" + groupNum]) 
+			group["group" + groupNum] = {};
+		
+		lv1.push(groupNum + "|" + firstInput.val() + "|" + firstInput.next().val() + "|" + firstInput.next().next().val());
+		group["group" + groupNum].lv1 = lv1 || [];
+		
+		while (true) {
+			if (nextTr.attr("id") == "One" || nextTr.attr("id") == "addOne") {
+				break;
+			} else if (nextTr.attr("id") == "Two") {
+				lv2.push((twoCnt + 1) + "|" + nextInput.val() + "|" + nextInput.next().val() + "|" + nextInput.next().next().val());
+				group["group" + groupNum].lv2 = lv2 || [];
+				twoCnt++;
+			} else if (nextTr.attr("id") == "Three") {
+				lv3.push(twoCnt + "|" + nextInput.val() + "|" + nextInput.next().val() + "|" + nextInput.next().next().val());
+				group["group" + groupNum].lv3 = lv3 || [];
+			}
 			
+			nextTr = nextTr.next();
+			nextInput = nextTr.find("input");
+		}
+		
+		groupNum++;
+		if (groupNum <= tmp.length) 
+			regGoal(groupNum);
+		else 
+			alert("끝!");
 	}
 	
 	
 	
-	
+//	function reg(group, cnt) {
+//		var tmp = $("input[name=lvOneText]").eq(group-1);
+//		var tmp_next_tr = tmp.closest("tr").next();
+//		var tmp_next_input = tmp_next_tr.find("input");
+//		var twoCount = 0, threeCount = 0;
+//		
+//		group1[lv1] = [tmp.val()|tmp.next().val()|tmp.next().next().val()];
+//		
+//		if (tmp_next.attr("id") == "Two") {
+//			group1[lv2[twoCount]] = [twoCount + 1|tmp_next_input.val()|tmp_next_input.next().val()|tmp_next_input.next().next().val()];
+//			twoCount++;
+//		} else if (tmp_next.attr("id") == "Three") {
+//			if (twoCount == 1) {
+//				group1[lv3[threeCount]] = [twoCount|tmp_next_input.val()|tmp_next_input.next().val()|tmp_next_input.next().next().val()];
+//			} else if (twoCount == 2) {
+//				group1[lv3[threeCount]] = [twoCount|tmp_next_input.val()|tmp_next_input.next().val()|tmp_next_input.next().next().val()];
+//			} else if (twoCount == 3) {
+//				group1[lv3[threeCount]] = [twoCount|tmp_next_input.val()|tmp_next_input.next().val()|tmp_next_input.next().next().val()];
+//			}
+//		} else if (tmp_next.attr("id") == "One") {
+//			var group2 = {
+//				lv1: [],
+//				lv2: [],
+//				lv3: []
+//			}
+//		}
+//	}
 	
 	
 	

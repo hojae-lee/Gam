@@ -365,11 +365,11 @@
 			nextInput = nextTr.find("input");
 		}
 		
-		groupNum++;
-		if (groupNum > tmp.length) 
-			alert("끝!");
-		else 
-			regGoal(groupNum);
+//		groupNum++;
+//		if (groupNum > tmp.length) 
+//			alert("끝!");
+//		else 
+//			regGoal(groupNum);
 	}
 	
 	

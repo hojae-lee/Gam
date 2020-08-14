@@ -366,10 +366,10 @@
 		}
 		
 		groupNum++;
-		if (groupNum <= tmp.length) 
-			regGoal(groupNum);
-		else 
+		if (groupNum > tmp.length) 
 			alert("끝!");
+		else 
+			regGoal(groupNum);
 	}
 	
 	

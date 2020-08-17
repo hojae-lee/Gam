@@ -43,7 +43,7 @@
 					<tr>
 						<td>
 							<div>
-								<input type="button" class="btn btn-success" value="저장">
+								<input type="button" class="btn btn-success reg" value="저장">
 								<input type="reset" class="btn btn-danger" value="초기화">
 							</div>
 						</td>

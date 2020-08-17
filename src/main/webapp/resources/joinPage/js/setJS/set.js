@@ -335,7 +335,7 @@
 	var group = {};
 	var groupNum = 1;
 	
-	function regGoal(number) {
+	function reg() {
 		var lv1 = [], lv2 = [], lv3 = [];
 		var tmp = $("input[name=lvOneText]");
 		var firstInput = tmp.eq(groupNum - 1);
@@ -363,15 +363,24 @@
 			
 			nextTr = nextTr.next();
 			nextInput = nextTr.find("input");
+			
+			if (nextTr.length == 0) {
+				break;
+			}
 		}
 		
-//		groupNum++;
-//		if (groupNum > tmp.length) 
-//			alert("끝!");
-//		else 
-//			regGoal(groupNum);
+		groupNum++;
+		if (groupNum > tmp.length) {
+			console.log(group);
+			return false;
+		}
+		else 
+			reg();
 	}
 	
+	$(document).on("click", ".reg", function() {
+		reg();
+	});
 	
 	
 //	function reg(group, cnt) {
